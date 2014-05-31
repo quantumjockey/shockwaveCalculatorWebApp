@@ -1,6 +1,7 @@
 ﻿'use strict';
 
-angular.module('shockwaveCalculatorWebApp')
+angular
+	.module('shockwaveCalculatorWebApp')
 	.factory('settingsFactory', function () {
 
     var factory = {};
