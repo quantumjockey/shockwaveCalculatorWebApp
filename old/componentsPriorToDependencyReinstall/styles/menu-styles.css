@@ -1,0 +1,27 @@
+﻿ul.mainMenu {
+    width:100%;
+}
+
+ul.mainMenu a {
+    color:white;
+    display:block;
+    font-size:17px;
+    padding:10px;
+    text-shadow: 1px 1px 1px black;
+}
+
+ul.mainMenu li {
+    border-radius:10px;
+    border-style:inset;
+    border-width:3px;
+    box-shadow: 2px 2px 5px black;
+    float:left;
+    margin-left:8%;
+    margin-top:10px;
+}
+
+ul.mainMenu li:hover {
+    background:#B20000;
+    border-style:outset;
+    cursor:pointer;
+}

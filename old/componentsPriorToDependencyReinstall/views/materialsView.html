@@ -1,0 +1,67 @@
+﻿<div>
+    <h1>Database of Shock Properties for Various Materials</h1>
+    <p>
+        You can view shock properties for variou materials below. We'll make this searchable at some point. For now, use the list box 
+        to select the material for which you want to view shock data. All data is excerpted from tables created by Thomas Ahrens, PhD.
+        Table names and links are listed in the references section of this site.
+    </p>
+    <div>
+        <h3>Available Materials</h3>
+        <select class="mat" data-ng-model="SelectedMaterial"
+            data-ng-options="mat.Name + ' (' + mat.Density + ')' for mat in materials">
+
+        </select>
+    </div>
+    <div>
+        <ul>
+            <li>
+                <label><b>Name:</b> {{SelectedMaterial.Name}}</label>
+            <li>
+                <label><b>Formula:</b> {{SelectedMaterial.Formula}}</label>
+            </li>
+            <li>
+                <label><b>Density:</b> {{SelectedMaterial.Density}} Mg/m³</label>
+            </li>
+            <li>
+                <label><b>Special Measurement Conditions:</b> {{GetMeasurementCondition(SelectedMaterial.SpecialMeasurementIdentifier)}}</label>
+            </li>
+            <li>
+                <label><b>Internal References:</b> {{SelectedMaterial.References}}</label>
+            </li>
+            <li>
+                <label><b>Remarks:</b> {{SelectedMaterial.Remarks}}</label>
+            </li>
+        </ul>
+    </div>
+    <div>
+        <h4>Phases List:</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>Phase Number</th>
+                    <th>Phase Type</th>
+                    <th>C₀</th>
+                    <th>Δ C₀ (error)</th>
+                    <th>S</th>
+                    <th>ΔS (error)</th>
+                    <th>U (lower)</th>
+                    <th>U (upper)</th>
+                    <th>No. of Data</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-ng-repeat="phase in SelectedMaterial.Phases">
+                    <td>{{phase.PhaseNumber}}</td>
+                    <td>{{GetPhaseType(phase.PhaseNumber)}}</td>
+                    <td>{{phase.IsentropicBulkSoundSpeed}}</td>
+                    <td>{{phase.IsentropicBulkSoundSpeedError}}</td>
+                    <td>{{phase.DimensionlessSparameter}}</td>
+                    <td>{{phase.DimensionlessSparameterError}}</td>
+                    <td>{{phase.ShockVelocityLower}}</td>
+                    <td>{{phase.ShockVelocityUpper}}</td>
+                    <td>{{phase.NumberOfData}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

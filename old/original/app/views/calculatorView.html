@@ -1,0 +1,249 @@
+﻿<div>
+    <h1>Shock Properties Calculator</h1>
+    <p>
+        Below is a calculator that dynamically calculates shock properties in various materials from the materials 
+        database. We've been experimenting with variations on this for a while, and are constantly striving to make 
+        it experiment-ready. Any suggestions for better accuracy and ease-of-use are greatly appreciated!
+    </p>
+    <div>
+        <h3>Input Fields</h3>
+        <div>
+            <h4>Materials Selection</h4>
+            <ul>
+                <li>
+                    <label>Flyer Material</label>
+                    <select class="mat" data-ng-model="SelectedFlyerMaterial"
+                        data-ng-change="ResetFlyer()"
+                        data-ng-options="mat.Name + ' (' + mat.Density + ')' for mat in materials">
+                    </select>
+                    <label>Phase</label>
+                    <select class="phase" data-ng-model="SelectedFlyerPhase"
+                        data-ng-change="CalculateShockProperties()"
+                        data-ng-options="phase.PhaseNumber for phase in SelectedFlyerMaterial.Phases">
+                    </select>
+                </li>
+                <li>
+                    <label>Driver Material</label>
+                    <select class="mat" data-ng-model="SelectedDriverMaterial"
+                        data-ng-change="ResetDriver()"
+                        data-ng-options="mat.Name + ' (' + mat.Density + ')' for mat in materials">
+                    </select>
+                    <label>Phase</label>
+                    <select class="phase" data-ng-model="SelectedDriverPhase"
+                        data-ng-change="CalculateShockProperties()"
+                        data-ng-options="phase.PhaseNumber for phase in SelectedDriverMaterial.Phases">
+                    </select>
+                </li>
+                <li>
+                    <label>Sample Material</label>
+                    <select class="mat" data-ng-model="SelectedSampleMaterial"
+                        data-ng-change="ResetSample()"
+                        data-ng-options="mat.Name + ' (' + mat.Density + ')' for mat in materials">
+                    </select>
+                    <label>Phase</label>
+                    <select class="phase" data-ng-model="SelectedSamplePhase"
+                        data-ng-change="CalculateShockProperties()"
+                        data-ng-options="phase.PhaseNumber for phase in SelectedSampleMaterial.Phases">
+                    </select>
+                </li>
+                <li>
+                    <label>Rear Driver Material</label>
+                    <select class="mat" data-ng-model="SelectedRearDriverMaterial"
+                        data-ng-change="ResetRearDriver()"
+                        data-ng-options="mat.Name + ' (' + mat.Density + ')' for mat in materials">
+                    </select>
+                    <label>Phase</label>
+                    <select class="phase" data-ng-model="SelectedRearDriverPhase"
+                        data-ng-change="CalculateShockProperties()"
+                        data-ng-options="phase.PhaseNumber for phase in SelectedRearDriverMaterial.Phases">
+                    </select>
+                </li>
+                <li>
+                    <label>Buffer Material</label>
+                    <select class="mat" data-ng-model="SelectedBufferMaterial"
+                        data-ng-change="ResetBuffer()"
+                        data-ng-options="mat.Name + ' (' + mat.Density + ')' for mat in materials">
+                    </select>
+                    <label>Phase</label>
+                    <select class="phase" data-ng-model="SelectedBufferPhase"
+                        data-ng-change="CalculateShockProperties()"
+                        data-ng-options="phase.PhaseNumber for phase in SelectedBufferMaterial.Phases">
+                    </select>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <h4>Speed Measurement</h4>
+            <ul>
+                <li>
+                    <label>Time Lapse Between Optical Triggers</label>
+                    <input type="text" 
+                        data-ng-change="CalculateShockProperties()"
+                        data-ng-model="TimeLapse"/>
+                    <label>µs</label>
+                </li>
+                <li>
+                    <label>Flyer Velocity</label>
+                    <label class="output">{{FlyerVelocity}}</label>
+                    <label>km/s</label>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <h4>Material Thicknesses</h4>
+            <ul>
+                <li>
+                    <label>Flyer Material Thickness</label>
+                    <input type="text" 
+                        data-ng-change="CalculateShockProperties()"
+                        data-ng-model="FlyerThickness"/>
+                    <label>mm</label>
+                </li>
+                <li>
+                    <label>Driver Material Thickness</label>
+                    <input type="text" 
+                        data-ng-change="CalculateShockProperties()"
+                        data-ng-model="DriverThickness"/>
+                    <label>mm</label>
+                </li>
+                <li>
+                    <label>Sample Material Thickness</label>
+                    <input type="text" 
+                        data-ng-change="CalculateShockProperties()"
+                        data-ng-model="SampleThickness"/>
+                    <label>mm</label>
+                </li>
+                <li>
+                    <label>Rear Driver Material Thickness</label>
+                    <input type="text" 
+                        data-ng-change="CalculateShockProperties()"
+                        data-ng-model="RearDriverThickness"/>
+                    <label>mm</label>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div>
+        <h3>Shock Properties</h3>
+        <div class="resultsContainer">
+            <h4>Flyer Properties</h4>
+            <ul>
+                <li>
+                    <label>Flyer-Driver Particle Velocity</label>
+                    <label class="output">{{FlyerDriverParticleVelocity}}</label>
+                    <label>km/s</label>
+                </li>
+                <li>
+                    <label>Shock Velocity into Flyer</label>
+                    <label class="output">{{ShockVelocityInFlyer}}</label>
+                    <label>km/s</label>
+                </li>
+                <li>
+                    <label>Shock Pressure into Flyer</label>
+                    <label class="output">{{ShockPressureInFlyer}}</label>
+                    <label>GPa</label>
+                </li>
+                <li>
+                    <label>Free-Surface Reflection in Flyer</label>
+                    <label class="output">{{FreeSurfaceReflectionInFlyer}}</label>
+                    <label>km/s</label>
+                </li>
+                <li>
+                    <label>Duration in Flyer</label>
+                    <label class="output">{{ShockDurationInFlyer}}</label>
+                    <label>s</label>
+                </li>
+            </ul>
+        </div>
+        <div class="resultsContainer">
+            <h4>Driver Properties</h4>
+            <ul>
+                <li>
+                    <label>Driver-Sample Particle Velocity</label>
+                    <label class="output">{{DriverSampleParticleVelocity}}</label>
+                    <label>km/s</label>
+                </li>
+                <li>
+                    <label>Shock Velocity into Driver</label>
+                    <label class="output">{{ShockVelocityInDriver}}</label>
+                    <label>km/s</label>
+                </li>
+                <li>
+                    <label>Shock Pressure into Driver</label>
+                    <label class="output">{{ShockPressureInDriver}}</label>
+                    <label>GPa</label>
+                </li>
+                <li>
+                    <label>Free-Surface Reflection in Driver</label>
+                    <label class="output">{{FreeSurfaceReflectionInDriver}}</label>
+                    <label>km/s</label>
+                </li>
+                <li>
+                    <label>Duration in Driver</label>
+                    <label class="output">{{ShockDurationInDriver}}</label>
+                    <label>s</label>
+                </li>
+            </ul>
+        </div>
+        <div class="resultsContainer">
+            <h4>Sample Properties</h4>
+            <ul>
+                <li>
+                    <label>Sample-R.Driver Particle Velocity</label>
+                    <label class="output">{{SampleRearDriverParticleVelocity}}</label>
+                    <label>km/s</label>
+                </li>
+                <li>
+                    <label>Shock Velocity into Sample</label>
+                    <label class="output">{{ShockVelocityInSample}}</label>
+                    <label>km/s</label>
+                </li>
+                <li>
+                    <label>Shock Pressure into Sample</label>
+                    <label class="output">{{ShockPressureInSample}}</label>
+                    <label>GPa</label>
+                </li>
+                <li>
+                    <label>Free-Surface Reflection in Sample</label>
+                    <label class="output">{{FreeSurfaceReflectionInSample}}</label>
+                    <label>km/s</label>
+                </li>
+                <li>
+                    <label>Duration in Sample</label>
+                    <label class="output">{{ShockDurationInSample}}</label>
+                    <label>s</label>
+                </li>
+            </ul>
+        </div>
+        <div class="resultsContainer">
+            <h4>Rear Driver Properties</h4>
+            <ul>
+                <li>
+                    <label>R.Driver Particle Velocity</label>
+                    <label class="output">{{RearDriverBufferParticleVelocity}}</label>
+                    <label>km/s</label>
+                </li>
+                <li>
+                    <label>Shock Velocity into R.Driver</label>
+                    <label class="output">{{ShockVelocityInRearDriver}}</label>
+                    <label>km/s</label>
+                </li>
+                <li>
+                    <label>Shock Pressure into R.Driver</label>
+                    <label class="output">{{ShockPressureInRearDriver}}</label>
+                    <label>GPa</label>
+                </li>
+                <li>
+                    <label>Free-Surface Reflection in R.Driver</label>
+                    <label class="output">{{FreeSurfaceReflectionInRearDriver}}</label>
+                    <label>km/s</label>
+                </li>
+                <li>
+                    <label>Duration in R.Driver</label>
+                    <label class="output">{{ShockDurationInRearDriver}}</label>
+                    <label>s</label>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
