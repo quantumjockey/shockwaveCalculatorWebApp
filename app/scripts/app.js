@@ -11,18 +11,18 @@ angular
       $routeProvider
         .when('/Calculator',
           {
-              templateUrl: 'views/calculatorView.html',
-              controller: 'calculatorController'
+              templateUrl: 'views/calculator.html',
+              controller: 'calculator'
           })
         .when('/Materials',
           {
-              templateUrl: 'views/materialsView.html',
-              controller: 'materialsController'
+              templateUrl: 'views/materials.html',
+              controller: 'materials'
           })
         .when('/Settings',
           {
-              templateUrl: 'views/settingsView.html',
-              controller: 'settingsController'
+              templateUrl: 'views/settings.html',
+              controller: 'settings'
           })
         .otherwise({ 
           redirectTo: '/Calculator' 

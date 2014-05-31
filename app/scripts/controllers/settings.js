@@ -1,7 +1,7 @@
 ﻿'use strict';
 
 angular.module('shockwaveCalculatorWebApp')
-    .controller('settingsController', function ($scope, settingsFactory) {
+    .controller('settings', function ($scope, settingsFactory) {
 
     /////// CONTROLLER FUNCTION DEFINITIONS (BEGIN) ///////
 
@@ -20,4 +20,6 @@ angular.module('shockwaveCalculatorWebApp')
     $scope.Tolerance = settingsFactory.Tolerance;
 
     /////// CONTROLLER INTIALIZATION (BEGIN) ///////
+
+    $scope.number = 4;
 });

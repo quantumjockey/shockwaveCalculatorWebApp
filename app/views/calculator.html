@@ -1,9 +1,9 @@
 ﻿<div>
-    <h1>Shock Properties Calculator</h1>
+    <h1>Shockwave Properties Calculator</h1>
     <p>
         Below is a calculator that dynamically calculates shock properties in various materials from the materials 
         database. We've been experimenting with variations on this for a while, and are constantly striving to make 
-        it experiment-ready. Any suggestions for better accuracy and ease-of-use are greatly appreciated!
+        it experiment-ready. Any suggestions for improving accuracy and ease-of-use are greatly appreciated!
     </p>
     <div>
         <h3>Input Fields</h3>
@@ -12,62 +12,62 @@
             <ul>
                 <li>
                     <label>Flyer Material</label>
-                    <select class="mat" data-ng-model="SelectedFlyerMaterial"
-                        data-ng-change="ResetFlyer()"
-                        data-ng-options="mat.Name + ' (' + mat.Density + ')' for mat in materials">
+                    <select class="mat" ng-model="SelectedFlyerMaterial"
+                        ng-change="ResetFlyer()"
+                        ng-options="mat.Name + ' (' + mat.Density + ')' for mat in materials">
                     </select>
                     <label>Phase</label>
-                    <select class="phase" data-ng-model="SelectedFlyerPhase"
-                        data-ng-change="CalculateShockProperties()"
-                        data-ng-options="phase.PhaseNumber for phase in SelectedFlyerMaterial.Phases">
+                    <select class="phase" ng-model="SelectedFlyerPhase"
+                        ng-change="CalculateShockProperties()"
+                        ng-options="phase.PhaseNumber for phase in SelectedFlyerMaterial.Phases">
                     </select>
                 </li>
                 <li>
                     <label>Driver Material</label>
-                    <select class="mat" data-ng-model="SelectedDriverMaterial"
-                        data-ng-change="ResetDriver()"
-                        data-ng-options="mat.Name + ' (' + mat.Density + ')' for mat in materials">
+                    <select class="mat" ng-model="SelectedDriverMaterial"
+                        ng-change="ResetDriver()"
+                        ng-options="mat.Name + ' (' + mat.Density + ')' for mat in materials">
                     </select>
                     <label>Phase</label>
-                    <select class="phase" data-ng-model="SelectedDriverPhase"
-                        data-ng-change="CalculateShockProperties()"
-                        data-ng-options="phase.PhaseNumber for phase in SelectedDriverMaterial.Phases">
+                    <select class="phase" ng-model="SelectedDriverPhase"
+                        ng-change="CalculateShockProperties()"
+                        ng-options="phase.PhaseNumber for phase in SelectedDriverMaterial.Phases">
                     </select>
                 </li>
                 <li>
                     <label>Sample Material</label>
-                    <select class="mat" data-ng-model="SelectedSampleMaterial"
-                        data-ng-change="ResetSample()"
-                        data-ng-options="mat.Name + ' (' + mat.Density + ')' for mat in materials">
+                    <select class="mat" ng-model="SelectedSampleMaterial"
+                        ng-change="ResetSample()"
+                        ng-options="mat.Name + ' (' + mat.Density + ')' for mat in materials">
                     </select>
                     <label>Phase</label>
-                    <select class="phase" data-ng-model="SelectedSamplePhase"
-                        data-ng-change="CalculateShockProperties()"
-                        data-ng-options="phase.PhaseNumber for phase in SelectedSampleMaterial.Phases">
+                    <select class="phase" ng-model="SelectedSamplePhase"
+                        ng-change="CalculateShockProperties()"
+                        ng-options="phase.PhaseNumber for phase in SelectedSampleMaterial.Phases">
                     </select>
                 </li>
                 <li>
                     <label>Rear Driver Material</label>
-                    <select class="mat" data-ng-model="SelectedRearDriverMaterial"
-                        data-ng-change="ResetRearDriver()"
-                        data-ng-options="mat.Name + ' (' + mat.Density + ')' for mat in materials">
+                    <select class="mat" ng-model="SelectedRearDriverMaterial"
+                        ng-change="ResetRearDriver()"
+                        ng-options="mat.Name + ' (' + mat.Density + ')' for mat in materials">
                     </select>
                     <label>Phase</label>
-                    <select class="phase" data-ng-model="SelectedRearDriverPhase"
-                        data-ng-change="CalculateShockProperties()"
-                        data-ng-options="phase.PhaseNumber for phase in SelectedRearDriverMaterial.Phases">
+                    <select class="phase" ng-model="SelectedRearDriverPhase"
+                        ng-change="CalculateShockProperties()"
+                        ng-options="phase.PhaseNumber for phase in SelectedRearDriverMaterial.Phases">
                     </select>
                 </li>
                 <li>
                     <label>Buffer Material</label>
-                    <select class="mat" data-ng-model="SelectedBufferMaterial"
-                        data-ng-change="ResetBuffer()"
-                        data-ng-options="mat.Name + ' (' + mat.Density + ')' for mat in materials">
+                    <select class="mat" ng-model="SelectedBufferMaterial"
+                        ng-change="ResetBuffer()"
+                        ng-options="mat.Name + ' (' + mat.Density + ')' for mat in materials">
                     </select>
                     <label>Phase</label>
-                    <select class="phase" data-ng-model="SelectedBufferPhase"
-                        data-ng-change="CalculateShockProperties()"
-                        data-ng-options="phase.PhaseNumber for phase in SelectedBufferMaterial.Phases">
+                    <select class="phase" ng-model="SelectedBufferPhase"
+                        ng-change="CalculateShockProperties()"
+                        ng-options="phase.PhaseNumber for phase in SelectedBufferMaterial.Phases">
                     </select>
                 </li>
             </ul>
@@ -78,8 +78,8 @@
                 <li>
                     <label>Time Lapse Between Optical Triggers</label>
                     <input type="text" 
-                        data-ng-change="CalculateShockProperties()"
-                        data-ng-model="TimeLapse"/>
+                        ng-change="CalculateShockProperties()"
+                        ng-model="TimeLapse"/>
                     <label>µs</label>
                 </li>
                 <li>
@@ -95,29 +95,29 @@
                 <li>
                     <label>Flyer Material Thickness</label>
                     <input type="text" 
-                        data-ng-change="CalculateShockProperties()"
-                        data-ng-model="FlyerThickness"/>
+                        ng-change="CalculateShockProperties()"
+                        ng-model="FlyerThickness"/>
                     <label>mm</label>
                 </li>
                 <li>
                     <label>Driver Material Thickness</label>
                     <input type="text" 
-                        data-ng-change="CalculateShockProperties()"
-                        data-ng-model="DriverThickness"/>
+                        ng-change="CalculateShockProperties()"
+                        ng-model="DriverThickness"/>
                     <label>mm</label>
                 </li>
                 <li>
                     <label>Sample Material Thickness</label>
                     <input type="text" 
-                        data-ng-change="CalculateShockProperties()"
-                        data-ng-model="SampleThickness"/>
+                        ng-change="CalculateShockProperties()"
+                        ng-model="SampleThickness"/>
                     <label>mm</label>
                 </li>
                 <li>
                     <label>Rear Driver Material Thickness</label>
                     <input type="text" 
-                        data-ng-change="CalculateShockProperties()"
-                        data-ng-model="RearDriverThickness"/>
+                        ng-change="CalculateShockProperties()"
+                        ng-model="RearDriverThickness"/>
                     <label>mm</label>
                 </li>
             </ul>
