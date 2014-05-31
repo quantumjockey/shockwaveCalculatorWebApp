@@ -2,7 +2,7 @@
 
 angular
     .module('shockwaveCalculatorWebApp')
-    .controller('calculator', function ($scope, materialsFactory, settingsFactory) {
+    .controller('CalculatorCtrl', function ($scope, materialsFactory, settingsFactory) {
 
     /////// CONTROLLER FUNCTION DEFINITIONS (BEGIN) ///////
 

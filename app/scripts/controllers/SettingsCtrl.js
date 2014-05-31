@@ -2,7 +2,7 @@
 
 angular
     .module('shockwaveCalculatorWebApp')
-    .controller('settings', function ($scope, settingsFactory) {
+    .controller('SettingsCtrl', function ($scope, settingsFactory) {
 
     /////// CONTROLLER FUNCTION DEFINITIONS (BEGIN) ///////
 
@@ -21,6 +21,4 @@ angular
     $scope.Tolerance = settingsFactory.Tolerance;
 
     /////// CONTROLLER INTIALIZATION (BEGIN) ///////
-
-    $scope.number = 4;
 });

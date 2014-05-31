@@ -12,17 +12,17 @@ angular
         .when('/Calculator',
           {
               templateUrl: 'views/calculator.html',
-              controller: 'calculator'
+              controller: 'CalculatorCtrl'
           })
         .when('/Materials',
           {
               templateUrl: 'views/materials.html',
-              controller: 'materials'
+              controller: 'MaterialsCtrl'
           })
         .when('/Settings',
           {
               templateUrl: 'views/settings.html',
-              controller: 'settings'
+              controller: 'SettingsCtrl'
           })
         .otherwise({ 
           redirectTo: '/Calculator' 
