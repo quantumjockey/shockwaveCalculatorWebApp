@@ -3,7 +3,7 @@
 describe('Controller: MainCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('shockwaveCalculatorWebAppApp'));
+  beforeEach(module('shockwaveCalculatorWebApp'));
 
   var MainCtrl,
     scope;
