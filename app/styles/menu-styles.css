@@ -1,5 +1,6 @@
 ﻿ul.mainMenu {
-    width:100%;
+    margin:10px;
+    text-align:center;
 }
 
 ul.mainMenu a {
@@ -15,9 +16,8 @@ ul.mainMenu li {
     border-style:inset;
     border-width:3px;
     box-shadow: 2px 2px 5px black;
-    float:left;
-    margin-left:8%;
-    margin-top:10px;
+    display:inline-block;
+    margin:5px;
 }
 
 ul.mainMenu li:hover {
