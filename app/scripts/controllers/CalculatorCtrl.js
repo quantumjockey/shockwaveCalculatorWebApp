@@ -6,16 +6,6 @@ angular
 
     /////// CONTROLLER FUNCTION DEFINITIONS (BEGIN) ///////
 
-    // Description: Takes the absolute value of input.
-    var Abs = function (value) {
-        if (value < 0) {
-            return value * -1;
-        }
-        else {
-            return value;
-        }
-    }
-
     // Description: Calculates the velocity of the flyer.
     var CalculateFlyerVelocity = function () {
         var velocity = 0.0;
@@ -66,7 +56,7 @@ angular
                     eqnRightSide = CalculateImpedanceMatchRight(targetMaterial, particleVelocity, targetPhase);
                     particleVelocity -= (tolerance / 1000.0);
                 }
-                while (Abs(eqnLeftSide - eqnRightSide) > tolerance);
+                while (Math.abs(eqnLeftSide - eqnRightSide) > tolerance);
             }
         }
 
