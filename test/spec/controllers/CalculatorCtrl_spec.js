@@ -11,12 +11,28 @@ describe('Controller: CalculatorCtrl', function () {
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    MainCtrl = $controller('MainCtrl', {
+    CalculatorCtrl = $controller('CalculatorCtrl', {
       $scope: scope
     });
   }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(scope.awesomeThings.length).toBe(3);
+  it('should calculate particle velocity via impedance matching for each layer', function () {
+
+  });
+
+  it('should calculate shock velocity for each layer', function () {
+
+  });
+
+  it('should calculate shock pressure for each layer', function () {
+
+  });
+
+  it('should calculate shock duration for each layer', function () {
+
+  });
+
+  it('should calculate free surface reflection for each layer', function () {
+
   });
 });

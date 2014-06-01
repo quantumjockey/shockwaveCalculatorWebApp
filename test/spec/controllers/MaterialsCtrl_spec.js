@@ -11,12 +11,16 @@ describe('Controller: MaterialsCtrl', function () {
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    MainCtrl = $controller('MainCtrl', {
+    MaterialsCtrl = $controller('MaterialsCtrl', {
       $scope: scope
     });
   }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(scope.awesomeThings.length).toBe(3);
+  it('should interpret alphanumeric phase identifiers', function () {
+
+  });
+
+  it('should interpret alphanumeric measurement condition identifiers', function () {
+
   });
 });
