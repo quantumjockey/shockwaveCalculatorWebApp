@@ -6,18 +6,6 @@ angular
 
     /////// CONTROLLER FUNCTION DEFINITIONS (BEGIN) ///////
 
-    // Description: Calculates the velocity of the flyer.
-    var CalculateFlyerVelocity = function () {
-        var velocity = 0.0;
-        if ($scope.TimeLapse == 0) {
-            velocity = 0.0;
-        }
-        else {
-            velocity = (($scope.OpticsSeparation / 1000) / ($scope.TimeLapse / 1000));
-        }
-        return velocity;
-    }
-
     // Description: Calculates free-surface reflection for the object.
     var CalculateFreeSurfaceReflection = function (particleVelocity) {
         return 2 * particleVelocity;
@@ -80,8 +68,6 @@ angular
 
     // Description: Calculates the shock properties for each stage.
     $scope.CalculateShockProperties = function () {
-        // Calculate Flyer Velocity
-        $scope.FlyerVelocity = CalculateFlyerVelocity();
 
         // Calculate Flyer Properties
         $scope.FlyerDriverParticleVelocity = CalculateParticleVelocity($scope.SelectedFlyerMaterial, $scope.SelectedFlyerPhase, $scope.SelectedDriverMaterial, $scope.SelectedDriverPhase, $scope.FlyerVelocity, $scope.Tolerance);
@@ -181,8 +167,7 @@ angular
     $scope.RearDriverThickness = 0;
 
     // Initialize calculation fields
-    $scope.OpticsSeparation = settingsFactory.OpticsSeparation;
-    $scope.TimeLapse = 0.0;
+    $scope.FlyerVelocity = 0;
     $scope.Tolerance = settingsFactory.Tolerance;
 
     // Perform primary calculation to zero out property fields

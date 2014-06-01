@@ -73,18 +73,13 @@
             </ul>
         </div>
         <div>
-            <h4>Speed Measurement</h4>
+            <h4>Flyer Properties</h4>
             <ul>
                 <li>
-                    <label>Time Lapse Between Optical Triggers</label>
+                    <label>Flyer Velocity</label>
                     <input type="text" 
                         ng-change="CalculateShockProperties()"
-                        ng-model="TimeLapse"/>
-                    <label>µs</label>
-                </li>
-                <li>
-                    <label>Flyer Velocity</label>
-                    <label class="output">{{ FlyerVelocity  | number:3 }}</label>
+                        ng-model="FlyerVelocity"/>
                     <label>km/s</label>
                 </li>
             </ul>

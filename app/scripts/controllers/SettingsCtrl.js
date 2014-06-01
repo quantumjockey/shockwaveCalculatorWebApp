@@ -8,7 +8,6 @@ angular
 
     // Description: Saves settings to the factory.
     $scope.SaveSettings = function () {
-        settingsFactory.OpticsSeparation = $scope.OpticsSeparation;
         settingsFactory.Tolerance = $scope.Tolerance;
     }
 
@@ -16,8 +15,7 @@ angular
 
     /////// CONTROLLER INTIALIZATION (BEGIN) ///////
 
-    // Initialize materials array
-    $scope.OpticsSeparation = settingsFactory.OpticsSeparation;
+    // Initialize settings attributes
     $scope.Tolerance = settingsFactory.Tolerance;
 
     /////// CONTROLLER INTIALIZATION (BEGIN) ///////
