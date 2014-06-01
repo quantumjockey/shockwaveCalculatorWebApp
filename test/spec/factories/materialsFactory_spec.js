@@ -1,11 +1,11 @@
 'use strict';
 
-describe('Controller: MainCtrl', function () {
+describe('Factory: materialsFactory', function () {
 
   // load the controller's module
   beforeEach(module('shockwaveCalculatorWebApp'));
 
-  var MainCtrl,
+  var materialsFactory,
     scope;
 
   // Initialize the controller and a mock scope
