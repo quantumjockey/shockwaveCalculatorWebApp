@@ -111,7 +111,6 @@ angular
 
   /////// CONTROLLER INTIALIZATION (BEGIN) ///////
 
-  // Initialize materials array
   $scope.materials = materialsFactory.getMaterials();
 
   // Initialize material select
