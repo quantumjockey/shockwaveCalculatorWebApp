@@ -1,7 +1,7 @@
 ﻿'use strict';
 
 angular
-  .module('shockwaveCalculatorWebApp')
+  .module('calculator')
   .controller('CalculatorCtrl', function ($scope, materialsFactory, settingsFactory) {
 
   /////// CONTROLLER FUNCTION DEFINITIONS (BEGIN) ///////

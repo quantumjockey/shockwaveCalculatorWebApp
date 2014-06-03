@@ -1,11 +1,18 @@
 'use strict';
 
+angular.module('materials',[]);
+angular.module('settings',[]);
+angular.module('calculator', [ 'materials', 'settings' ]);
+
 angular
   .module('shockwaveCalculatorWebApp', [
     'ngCookies',
     'ngResource',
     'ngSanitize',
-    'ngRoute'
+    'ngRoute',
+    'calculator',
+    'materials',
+    'settings'
   ])
   .config(function ($routeProvider) {
       $routeProvider
