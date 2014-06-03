@@ -1,7 +1,7 @@
 ﻿'use strict';
 
 angular
-  .module('shockwaveCalculatorWebApp')
+  .module('materials')
   .controller('MaterialsCtrl', function ($scope, materialsFactory) {
 
   /////// CONTROLLER FUNCTION DEFINITIONS (BEGIN) ///////
@@ -111,7 +111,6 @@ angular
 
   /////// CONTROLLER INTIALIZATION (BEGIN) ///////
 
-  // Initialize materials array
   $scope.materials = materialsFactory.getMaterials();
 
   // Initialize material select

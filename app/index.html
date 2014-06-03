@@ -74,19 +74,15 @@
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
-
-        <!--Application Module and Routing Initializers-->
-        <script src="scripts/app.js"></script>
-
-        <!--Application Factories-->
-        <script src="scripts/factories/materialsFactory.js"></script>
-        <script src="scripts/factories/settingsFactory.js"></script>
-
-        <!--Application Controllers-->
-        <script src="scripts/controllers/CalculatorCtrl.js"></script>
-        <script src="scripts/controllers/MaterialsCtrl.js"></script>
-        <script src="scripts/controllers/SettingsCtrl.js"></script>
-
+        <script src="app.js"></script>
+        <script src="modules/calculator/config.js"></script>
+        <script src="modules/calculator/controller.js"></script>
+        <script src="modules/materials/config.js"></script>
+        <script src="modules/materials/controller.js"></script>
+        <script src="modules/materials/factories.js"></script>
+        <script src="modules/settings/config.js"></script>
+        <script src="modules/settings/controller.js"></script>
+        <script src="modules/settings/factories.js"></script>
         <!-- endbuild -->
 </body>
 </html>

@@ -1,7 +1,7 @@
 ﻿'use strict';
 
 angular
-  .module('shockwaveCalculatorWebApp')
+  .module('settings')
   .controller('SettingsCtrl', function ($scope, settingsFactory) {
 
   /////// CONTROLLER FUNCTION DEFINITIONS (BEGIN) ///////
@@ -15,7 +15,6 @@ angular
 
   /////// CONTROLLER INTIALIZATION (BEGIN) ///////
 
-  // Initialize settings attributes
   $scope.Tolerance = settingsFactory.Tolerance;
 
   /////// CONTROLLER INTIALIZATION (BEGIN) ///////
