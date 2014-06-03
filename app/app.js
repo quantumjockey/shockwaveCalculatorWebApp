@@ -10,15 +10,15 @@ angular
   .config(function ($routeProvider) {
       $routeProvider
         .when('/Calculator', {
-          templateUrl: 'views/calculator.html',
+          templateUrl: 'modules/calculator/calculator.html',
           controller: 'CalculatorCtrl'
         })
         .when('/Materials', {
-          templateUrl: 'views/materials.html',
+          templateUrl: 'modules/materials/materials.html',
           controller: 'MaterialsCtrl'
         })
         .when('/Settings', {
-          templateUrl: 'views/settings.html',
+          templateUrl: 'modules/settings/settings.html',
           controller: 'SettingsCtrl'
         })
         .otherwise({
