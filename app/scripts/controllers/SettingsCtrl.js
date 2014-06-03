@@ -1,22 +1,22 @@
 ﻿'use strict';
 
 angular
-    .module('shockwaveCalculatorWebApp')
-    .controller('SettingsCtrl', function ($scope, settingsFactory) {
+  .module('shockwaveCalculatorWebApp')
+  .controller('SettingsCtrl', function ($scope, settingsFactory) {
 
-    /////// CONTROLLER FUNCTION DEFINITIONS (BEGIN) ///////
+  /////// CONTROLLER FUNCTION DEFINITIONS (BEGIN) ///////
 
-    // Description: Saves settings to the factory.
-    $scope.SaveSettings = function () {
-        settingsFactory.Tolerance = $scope.Tolerance;
-    }
+  // Description: Saves settings to the factory.
+  $scope.SaveSettings = function () {
+    settingsFactory.Tolerance = $scope.Tolerance;
+  };
 
-    /////// CONTROLLER FUNCTION DEFINITIONS (END) ///////
+  /////// CONTROLLER FUNCTION DEFINITIONS (END) ///////
 
-    /////// CONTROLLER INTIALIZATION (BEGIN) ///////
+  /////// CONTROLLER INTIALIZATION (BEGIN) ///////
 
-    // Initialize settings attributes
-    $scope.Tolerance = settingsFactory.Tolerance;
+  // Initialize settings attributes
+  $scope.Tolerance = settingsFactory.Tolerance;
 
-    /////// CONTROLLER INTIALIZATION (BEGIN) ///////
+  /////// CONTROLLER INTIALIZATION (BEGIN) ///////
 });

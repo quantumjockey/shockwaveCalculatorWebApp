@@ -10,4 +10,4 @@ angular
     factory.Tolerance = 0.1;
 
     return factory;
-});
+	});
