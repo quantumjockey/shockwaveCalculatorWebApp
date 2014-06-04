@@ -7,12 +7,12 @@ angular
   /////// CONTROLLER FUNCTION DEFINITIONS (BEGIN) ///////
 
   // Description: Calculates free-surface reflection for the object.
-  var CalculateFreeSurfaceReflection = function (particleVelocity) {
+  function CalculateFreeSurfaceReflection(particleVelocity) {
     return 2 * particleVelocity;
   };
 
   // Description: Calculates the left side of the impedance-match equation.
-  var CalculateImpedanceMatchLeft = function (flyerMaterial, flyerVelocity, particleVelocity, phase) {
+  function CalculateImpedanceMatchLeft(flyerMaterial, flyerVelocity, particleVelocity, phase) {
     var firstPart = flyerMaterial.Density * (flyerVelocity - particleVelocity);
     var secondPart = phase.IsentropicBulkSoundSpeed;
     var thirdPart = phase.DimensionlessSparameter * (flyerVelocity - particleVelocity);
@@ -20,7 +20,7 @@ angular
   };
 
   // Description: Calculates the right side of the impedance-match equation.
-  var CalculateImpedanceMatchRight = function (targetMaterial, particleVelocity, phase) {
+  function CalculateImpedanceMatchRight(targetMaterial, particleVelocity, phase) {
     var firstPart = targetMaterial.Density * particleVelocity;
     var secondPart = phase.IsentropicBulkSoundSpeed;
     var thirdPart = phase.DimensionlessSparameter * particleVelocity;
@@ -28,7 +28,7 @@ angular
   };
 
   // Description: Calculates the particle velocity of the material according to impedance-matching equations.
-  var CalculateParticleVelocity = function (flyerMaterial, flyerPhase, targetMaterial, targetPhase, velocityOfFlyer, tolerance) {
+  function CalculateParticleVelocity(flyerMaterial, flyerPhase, targetMaterial, targetPhase, velocityOfFlyer, tolerance) {
     var eqnLeftSide = 0.0;
     var eqnRightSide = 0.0;
     var particleVelocity = 0.0;
@@ -52,7 +52,7 @@ angular
   };
 
   // Description: Calculates shock duration for the given material.
-  var CalculateShockDuration = function (shockVelocity, materialThickness) {
+  function CalculateShockDuration(shockVelocity, materialThickness) {
     if (shockVelocity === 0) {
       return 0.0;
     }
@@ -62,7 +62,7 @@ angular
   };
 
   // Description: Calculates shock pressure for the given material.
-  var CalculateShockPressure = function (density, particleVelocity, shockVelocity) {
+  function CalculateShockPressure(density, particleVelocity, shockVelocity) {
     return density * particleVelocity * shockVelocity;
   };
 
@@ -99,7 +99,7 @@ angular
   };
 
   // Description: Calculates shock velocity for the given material.
-  var CalculateShockVelocity = function (dimensionlessSparameter, isoBulkSoundSpeed, particleVelocity) {
+  function CalculateShockVelocity(dimensionlessSparameter, isoBulkSoundSpeed, particleVelocity) {
     if (particleVelocity === 0) {
       return 0.0;
     }
