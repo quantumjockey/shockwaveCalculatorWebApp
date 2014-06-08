@@ -8,11 +8,11 @@ angular
 
   function Layer(title, materials) {
 
-    // Material Attributes
+    // Layer Attributes
     this.Name = title;
     this.Thickness = 0;
 
-    // Select Attributes
+    // Material Attributes
     this.SelectedMaterial = materials[0];
     this.SelectedPhase = this.SelectedMaterial.Phases[0];
 
@@ -34,11 +34,6 @@ angular
   /////// OBJECT PROTOTYPES (END) ///////
 
   /////// CONTROLLER FUNCTION DEFINITIONS (BEGIN) ///////
-
-  // Description: Calculates free-surface reflection for the object.
-  function CalculateFreeSurfaceReflection(particleVelocity) {
-    return 2 * particleVelocity;
-  };
 
   // Description: Calculates the left side of the impedance-match equation.
   function CalculateImpedanceMatchLeft(flyerMaterial, flyerVelocity, particleVelocity, phase) {
@@ -145,7 +140,7 @@ angular
   var sample = new Layer('Sample', $scope.materials);
   var rearDriver = new Layer('Rear Driver', $scope.materials);
   var buffer = new Layer('Buffer', $scope.materials);
-  
+
   $scope.layers.push(flyer);
   $scope.layers.push(driver);
   $scope.layers.push(sample);
