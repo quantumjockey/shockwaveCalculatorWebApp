@@ -11,63 +11,63 @@
             <h4>Materials Selection</h4>
             <ul>
                 <li>
-                    <label>Flyer Material</label>
-                    <select class="mat" ng-model="SelectedFlyerMaterial"
-                        ng-change="ResetFlyer()"
+                    <label>{{Flyer.Name}} Material</label>
+                    <select class="mat" ng-model="Flyer.SelectedMaterial"
+                        ng-change="Flyer.Reset()"
                         ng-options="mat.Name + ' (' + mat.Density + ')' for mat in materials">
                     </select>
                     <label>Phase</label>
-                    <select class="phase" ng-model="SelectedFlyerPhase"
+                    <select class="phase" ng-model="Flyer.SelectedPhase"
                         ng-change="CalculateShockProperties()"
-                        ng-options="phase.PhaseNumber for phase in SelectedFlyerMaterial.Phases">
+                        ng-options="phase.PhaseNumber for phase in Flyer.SelectedMaterial.Phases">
                     </select>
                 </li>
                 <li>
-                    <label>Driver Material</label>
-                    <select class="mat" ng-model="SelectedDriverMaterial"
-                        ng-change="ResetDriver()"
+                    <label>{{Driver.Name}} Material</label>
+                    <select class="mat" ng-model="Driver.SelectedMaterial"
+                        ng-change="Driver.Reset()"
                         ng-options="mat.Name + ' (' + mat.Density + ')' for mat in materials">
                     </select>
                     <label>Phase</label>
-                    <select class="phase" ng-model="SelectedDriverPhase"
+                    <select class="phase" ng-model="Driver.SelectedPhase"
                         ng-change="CalculateShockProperties()"
-                        ng-options="phase.PhaseNumber for phase in SelectedDriverMaterial.Phases">
+                        ng-options="phase.PhaseNumber for phase in Driver.SelectedMaterial.Phases">
                     </select>
                 </li>
                 <li>
-                    <label>Sample Material</label>
-                    <select class="mat" ng-model="SelectedSampleMaterial"
-                        ng-change="ResetSample()"
+                    <label>{{Sample.Name}} Material</label>
+                    <select class="mat" ng-model="Sample.SelectedMaterial"
+                        ng-change="Sample.Reset()"
                         ng-options="mat.Name + ' (' + mat.Density + ')' for mat in materials">
                     </select>
                     <label>Phase</label>
-                    <select class="phase" ng-model="SelectedSamplePhase"
+                    <select class="phase" ng-model="Sample.SelectedPhase"
                         ng-change="CalculateShockProperties()"
-                        ng-options="phase.PhaseNumber for phase in SelectedSampleMaterial.Phases">
+                        ng-options="phase.PhaseNumber for phase in Sample.SelectedMaterial.Phases">
                     </select>
                 </li>
                 <li>
-                    <label>Rear Driver Material</label>
-                    <select class="mat" ng-model="SelectedRearDriverMaterial"
-                        ng-change="ResetRearDriver()"
+                    <label>{{RearDriver.Name}} Material</label>
+                    <select class="mat" ng-model="RearDriver.SelectedMaterial"
+                        ng-change="RearDriver.Reset()"
                         ng-options="mat.Name + ' (' + mat.Density + ')' for mat in materials">
                     </select>
                     <label>Phase</label>
-                    <select class="phase" ng-model="SelectedRearDriverPhase"
+                    <select class="phase" ng-model="RearDriver.SelectedPhase"
                         ng-change="CalculateShockProperties()"
-                        ng-options="phase.PhaseNumber for phase in SelectedRearDriverMaterial.Phases">
+                        ng-options="phase.PhaseNumber for phase in RearDriver.SelectedMaterial.Phases">
                     </select>
                 </li>
                 <li>
-                    <label>Buffer Material</label>
-                    <select class="mat" ng-model="SelectedBufferMaterial"
-                        ng-change="ResetBuffer()"
+                    <label>{{Buffer.Name}} Material</label>
+                    <select class="mat" ng-model="Buffer.SelectedMaterial"
+                        ng-change="Buffer.Reset()"
                         ng-options="mat.Name + ' (' + mat.Density + ')' for mat in materials">
                     </select>
                     <label>Phase</label>
-                    <select class="phase" ng-model="SelectedBufferPhase"
+                    <select class="phase" ng-model="Buffer.SelectedPhase"
                         ng-change="CalculateShockProperties()"
-                        ng-options="phase.PhaseNumber for phase in SelectedBufferMaterial.Phases">
+                        ng-options="phase.PhaseNumber for phase in Buffer.SelectedMaterial.Phases">
                     </select>
                 </li>
             </ul>
@@ -88,31 +88,31 @@
             <h4>Material Thicknesses</h4>
             <ul>
                 <li>
-                    <label>Flyer Material Thickness</label>
+                    <label>{{Flyer.Name}} Material Thickness</label>
                     <input type="text" 
                         ng-change="CalculateShockProperties()"
-                        ng-model="FlyerThickness"/>
+                        ng-model="Flyer.Thickness"/>
                     <label>mm</label>
                 </li>
                 <li>
-                    <label>Driver Material Thickness</label>
+                    <label>{{Driver.Name}} Material Thickness</label>
                     <input type="text" 
                         ng-change="CalculateShockProperties()"
-                        ng-model="DriverThickness"/>
+                        ng-model="Driver.Thickness"/>
                     <label>mm</label>
                 </li>
                 <li>
-                    <label>Sample Material Thickness</label>
+                    <label>{{Sample.Name}} Material Thickness</label>
                     <input type="text" 
                         ng-change="CalculateShockProperties()"
-                        ng-model="SampleThickness"/>
+                        ng-model="Sample.Thickness"/>
                     <label>mm</label>
                 </li>
                 <li>
-                    <label>Rear Driver Material Thickness</label>
+                    <label>{{RearDriver.Name}} Material Thickness</label>
                     <input type="text" 
                         ng-change="CalculateShockProperties()"
-                        ng-model="RearDriverThickness"/>
+                        ng-model="RearDriver.Thickness"/>
                     <label>mm</label>
                 </li>
             </ul>
@@ -121,121 +121,121 @@
     <div>
         <h3>Shock Properties</h3>
         <div class="resultsContainer">
-            <h4>Flyer Properties</h4>
+            <h4>{{Flyer.Name}} Properties</h4>
             <ul>
                 <li>
                     <label>Flyer-Driver Particle Velocity</label>
-                    <label class="output">{{ FlyerDriverParticleVelocity | number:3 }}</label>
+                    <label class="output">{{ Flyer.ParticleVelocity | number:3 }}</label>
                     <label>km/s</label>
                 </li>
                 <li>
                     <label>Shock Velocity into Flyer</label>
-                    <label class="output">{{ ShockVelocityInFlyer | number:3 }}</label>
+                    <label class="output">{{ Flyer.ShockVelocity | number:3 }}</label>
                     <label>km/s</label>
                 </li>
                 <li>
                     <label>Shock Pressure into Flyer</label>
-                    <label class="output">{{ ShockPressureInFlyer | number:3 }}</label>
+                    <label class="output">{{ Flyer.ShockPressure | number:3 }}</label>
                     <label>GPa</label>
                 </li>
                 <li>
                     <label>Free-Surface Reflection in Flyer</label>
-                    <label class="output">{{ FreeSurfaceReflectionInFlyer | number:3 }}</label>
+                    <label class="output">{{ Flyer.FreeSurfaceReflection | number:3 }}</label>
                     <label>km/s</label>
                 </li>
                 <li>
                     <label>Duration in Flyer</label>
-                    <label class="output">{{ ShockDurationInFlyer | number:7 }}</label>
+                    <label class="output">{{ Flyer.ShockDuration | number:7 }}</label>
                     <label>s</label>
                 </li>
             </ul>
         </div>
         <div class="resultsContainer">
-            <h4>Driver Properties</h4>
+            <h4>{{Driver.Name}} Properties</h4>
             <ul>
                 <li>
                     <label>Driver-Sample Particle Velocity</label>
-                    <label class="output">{{ DriverSampleParticleVelocity | number:3 }}</label>
+                    <label class="output">{{ Driver.ParticleVelocity | number:3 }}</label>
                     <label>km/s</label>
                 </li>
                 <li>
                     <label>Shock Velocity into Driver</label>
-                    <label class="output">{{ ShockVelocityInDriver | number:3 }}</label>
+                    <label class="output">{{ Driver.ShockVelocity | number:3 }}</label>
                     <label>km/s</label>
                 </li>
                 <li>
                     <label>Shock Pressure into Driver</label>
-                    <label class="output">{{ ShockPressureInDriver | number:3 }}</label>
+                    <label class="output">{{ Driver.ShockPressure | number:3 }}</label>
                     <label>GPa</label>
                 </li>
                 <li>
                     <label>Free-Surface Reflection in Driver</label>
-                    <label class="output">{{ FreeSurfaceReflectionInDriver | number:3 }}</label>
+                    <label class="output">{{ Driver.FreeSurfaceReflection | number:3 }}</label>
                     <label>km/s</label>
                 </li>
                 <li>
                     <label>Duration in Driver</label>
-                    <label class="output">{{ ShockDurationInDriver | number:7 }}</label>
+                    <label class="output">{{ Driver.ShockDuration | number:7 }}</label>
                     <label>s</label>
                 </li>
             </ul>
         </div>
         <div class="resultsContainer">
-            <h4>Sample Properties</h4>
+            <h4>{{Sample.Name}} Properties</h4>
             <ul>
                 <li>
                     <label>Sample-R.Driver Particle Velocity</label>
-                    <label class="output">{{ SampleRearDriverParticleVelocity | number:3 }}</label>
+                    <label class="output">{{ Sample.ParticleVelocity | number:3 }}</label>
                     <label>km/s</label>
                 </li>
                 <li>
                     <label>Shock Velocity into Sample</label>
-                    <label class="output">{{ ShockVelocityInSample | number:3 }}</label>
+                    <label class="output">{{ Sample.ShockVelocity | number:3 }}</label>
                     <label>km/s</label>
                 </li>
                 <li>
                     <label>Shock Pressure into Sample</label>
-                    <label class="output">{{ ShockPressureInSample | number:3 }}</label>
+                    <label class="output">{{ Sample.ShockPressure | number:3 }}</label>
                     <label>GPa</label>
                 </li>
                 <li>
                     <label>Free-Surface Reflection in Sample</label>
-                    <label class="output">{{ FreeSurfaceReflectionInSample | number:3 }}</label>
+                    <label class="output">{{ Sample.FreeSurfaceReflection | number:3 }}</label>
                     <label>km/s</label>
                 </li>
                 <li>
                     <label>Duration in Sample</label>
-                    <label class="output">{{ ShockDurationInSample | number:7 }}</label>
+                    <label class="output">{{ Sample.ShockDuration | number:7 }}</label>
                     <label>s</label>
                 </li>
             </ul>
         </div>
         <div class="resultsContainer">
-            <h4>Rear Driver Properties</h4>
+            <h4>{{RearDriver.Name}} Properties</h4>
             <ul>
                 <li>
                     <label>R.Driver Particle Velocity</label>
-                    <label class="output">{{ RearDriverBufferParticleVelocity | number:3 }}</label>
+                    <label class="output">{{ RearDriver.ParticleVelocity | number:3 }}</label>
                     <label>km/s</label>
                 </li>
                 <li>
                     <label>Shock Velocity into R.Driver</label>
-                    <label class="output">{{ ShockVelocityInRearDriver | number:3 }}</label>
+                    <label class="output">{{ RearDriver.ShockVelocity | number:3 }}</label>
                     <label>km/s</label>
                 </li>
                 <li>
                     <label>Shock Pressure into R.Driver</label>
-                    <label class="output">{{ ShockPressureInRearDriver | number:3 }}</label>
+                    <label class="output">{{ RearDriver.ShockPressure | number:3 }}</label>
                     <label>GPa</label>
                 </li>
                 <li>
                     <label>Free-Surface Reflection in R.Driver</label>
-                    <label class="output">{{ FreeSurfaceReflectionInRearDriver | number:3 }}</label>
+                    <label class="output">{{ RearDriver.FreeSurfaceReflection | number:3 }}</label>
                     <label>km/s</label>
                 </li>
                 <li>
                     <label>Duration in R.Driver</label>
-                    <label class="output">{{ ShockDurationInRearDriver | number:7 }}</label>
+                    <label class="output">{{ RearDriver.ShockDuration | number:7 }}</label>
                     <label>s</label>
                 </li>
             </ul>
