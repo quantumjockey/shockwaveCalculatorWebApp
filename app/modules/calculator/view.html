@@ -39,7 +39,7 @@
         <div>
             <h4>Material Thicknesses</h4>
             <ul>
-                <li ng-repeat="layer in layers">
+                <li ng-if="layer.ID != 4" ng-repeat="layer in layers">
                     <label>{{layer.Name}} Material Thickness</label>
                     <input type="text" 
                         ng-change="CalculateShockProperties()"
@@ -51,7 +51,7 @@
     </div>
     <div>
         <h3>Shock Properties</h3>
-        <div class="resultsContainer" ng-repeat="layer in layers">
+        <div class="resultsContainer" ng-if="layer.ID != 4" ng-repeat="layer in layers">
             <h4>{{layer.Name}} Properties</h4>
             <ul>
                 <li>

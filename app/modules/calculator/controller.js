@@ -6,9 +6,10 @@ angular
 
   /////// OBJECT PROTOTYPES (BEGIN) ///////
 
-  function Layer(title, materials) {
+  function Layer(title, materials, id) {
 
     // Layer Attributes
+    this.ID = id;
     this.Name = title;
     this.Thickness = 0;
 
@@ -140,11 +141,11 @@ angular
   // Initialize material layers
   $scope.layers = [];
 
-  var flyer = new Layer('Flyer', $scope.materials);
-  var driver = new Layer('Driver', $scope.materials);
-  var sample = new Layer('Sample', $scope.materials);
-  var rearDriver = new Layer('Rear Driver', $scope.materials);
-  var buffer = new Layer('Buffer', $scope.materials);
+  var flyer = new Layer('Flyer', $scope.materials, 0);
+  var driver = new Layer('Driver', $scope.materials, 1);
+  var sample = new Layer('Sample', $scope.materials, 2);
+  var rearDriver = new Layer('Rear Driver', $scope.materials, 3);
+  var buffer = new Layer('Buffer', $scope.materials, 4);
 
   $scope.layers.push(flyer);
   $scope.layers.push(driver);
