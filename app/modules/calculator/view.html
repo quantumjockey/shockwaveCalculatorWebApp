@@ -12,14 +12,14 @@
             <ul>
                 <li ng-repeat="layer in layers">
                     <label>{{layer .Name}} Material</label>
-                    <select class="mat" ng-model="layer .SelectedMaterial"
+                    <select class="mat" ng-model="layer.SelectedMaterial"
                         ng-change="layer .Reset()"
                         ng-options="mat.Name + ' (' + mat.Density + ')' for mat in materials">
                     </select>
                     <label>Phase</label>
-                    <select class="phase" ng-model="layer .SelectedPhase"
+                    <select class="phase" ng-model="layer.SelectedPhase"
                         ng-change="CalculateShockProperties()"
-                        ng-options="phase.PhaseNumber for phase in layer .SelectedMaterial.Phases">
+                        ng-options="phase.PhaseNumber for phase in layer.SelectedMaterial.Phases">
                     </select>
                 </li>
             </ul>

@@ -35,6 +35,11 @@ angular
 
   /////// CONTROLLER FUNCTION DEFINITIONS (BEGIN) ///////
 
+  // Description: Calculates free-surface reflection for the object.
+  function CalculateFreeSurfaceReflection(particleVelocity) {
+    return 2 * particleVelocity;
+  };
+
   // Description: Calculates the left side of the impedance-match equation.
   function CalculateImpedanceMatchLeft(flyerMaterial, flyerVelocity, particleVelocity, phase) {
     var firstPart = flyerMaterial.Density * (flyerVelocity - particleVelocity);
