@@ -124,6 +124,7 @@ angular
     $scope.RearDriver.ShockPressure = CalculateShockPressure($scope.RearDriver.SelectedMaterial.Density, $scope.RearDriverBufferParticleVelocity, $scope.RearDriver.ShockVelocity);
     $scope.RearDriver.FreeSurfaceReflection = CalculateFreeSurfaceReflection($scope.RearDriverBufferParticleVelocity);
     $scope.RearDriver.ShockDuration = CalculateShockDuration($scope.RearDriver.ShockVelocity, $scope.RearDriver.Thickness);
+
   };
 
   // Description: Calculates shock velocity for the given material.
@@ -148,7 +149,7 @@ angular
   $scope.Flyer = new Layer('Flyer', $scope.materials);
   $scope.Driver = new Layer('Driver', $scope.materials);
   $scope.Sample = new Layer('Sample', $scope.materials);
-  $scope.RearDriver = new Layer('RearDriver', $scope.materials);
+  $scope.RearDriver = new Layer('Rear Driver', $scope.materials);
   $scope.Buffer = new Layer('Buffer', $scope.materials);
 
   // Initialize calculation fields

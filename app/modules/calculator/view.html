@@ -11,7 +11,7 @@
             <h4>Materials Selection</h4>
             <ul>
                 <li>
-                    <label>Flyer Material</label>
+                    <label>{{Flyer.Name}} Material</label>
                     <select class="mat" ng-model="Flyer.SelectedMaterial"
                         ng-change="Flyer.Reset()"
                         ng-options="mat.Name + ' (' + mat.Density + ')' for mat in materials">
@@ -23,7 +23,7 @@
                     </select>
                 </li>
                 <li>
-                    <label>Driver Material</label>
+                    <label>{{Driver.Name}} Material</label>
                     <select class="mat" ng-model="Driver.SelectedMaterial"
                         ng-change="Driver.Reset()"
                         ng-options="mat.Name + ' (' + mat.Density + ')' for mat in materials">
@@ -35,7 +35,7 @@
                     </select>
                 </li>
                 <li>
-                    <label>Sample Material</label>
+                    <label>{{Sample.Name}} Material</label>
                     <select class="mat" ng-model="Sample.SelectedMaterial"
                         ng-change="Sample.Reset()"
                         ng-options="mat.Name + ' (' + mat.Density + ')' for mat in materials">
@@ -47,7 +47,7 @@
                     </select>
                 </li>
                 <li>
-                    <label>Rear Driver Material</label>
+                    <label>{{RearDriver.Name}} Material</label>
                     <select class="mat" ng-model="RearDriver.SelectedMaterial"
                         ng-change="RearDriver.Reset()"
                         ng-options="mat.Name + ' (' + mat.Density + ')' for mat in materials">
@@ -59,7 +59,7 @@
                     </select>
                 </li>
                 <li>
-                    <label>Buffer Material</label>
+                    <label>{{Buffer.Name}} Material</label>
                     <select class="mat" ng-model="Buffer.SelectedMaterial"
                         ng-change="Buffer.Reset()"
                         ng-options="mat.Name + ' (' + mat.Density + ')' for mat in materials">
@@ -88,28 +88,28 @@
             <h4>Material Thicknesses</h4>
             <ul>
                 <li>
-                    <label>Flyer Material Thickness</label>
+                    <label>{{Flyer.Name}} Material Thickness</label>
                     <input type="text" 
                         ng-change="CalculateShockProperties()"
                         ng-model="Flyer.Thickness"/>
                     <label>mm</label>
                 </li>
                 <li>
-                    <label>Driver Material Thickness</label>
+                    <label>{{Driver.Name}} Material Thickness</label>
                     <input type="text" 
                         ng-change="CalculateShockProperties()"
                         ng-model="Driver.Thickness"/>
                     <label>mm</label>
                 </li>
                 <li>
-                    <label>Sample Material Thickness</label>
+                    <label>{{Sample.Name}} Material Thickness</label>
                     <input type="text" 
                         ng-change="CalculateShockProperties()"
                         ng-model="Sample.Thickness"/>
                     <label>mm</label>
                 </li>
                 <li>
-                    <label>Rear Driver Material Thickness</label>
+                    <label>{{RearDriver.Name}} Material Thickness</label>
                     <input type="text" 
                         ng-change="CalculateShockProperties()"
                         ng-model="RearDriver.Thickness"/>
@@ -121,7 +121,7 @@
     <div>
         <h3>Shock Properties</h3>
         <div class="resultsContainer">
-            <h4>Flyer Properties</h4>
+            <h4>{{Flyer.Name}} Properties</h4>
             <ul>
                 <li>
                     <label>Flyer-Driver Particle Velocity</label>
@@ -151,7 +151,7 @@
             </ul>
         </div>
         <div class="resultsContainer">
-            <h4>Driver Properties</h4>
+            <h4>{{Driver.Name}} Properties</h4>
             <ul>
                 <li>
                     <label>Driver-Sample Particle Velocity</label>
@@ -181,7 +181,7 @@
             </ul>
         </div>
         <div class="resultsContainer">
-            <h4>Sample Properties</h4>
+            <h4>{{Sample.Name}} Properties</h4>
             <ul>
                 <li>
                     <label>Sample-R.Driver Particle Velocity</label>
@@ -211,7 +211,7 @@
             </ul>
         </div>
         <div class="resultsContainer">
-            <h4>Rear Driver Properties</h4>
+            <h4>{{RearDriver.Name}} Properties</h4>
             <ul>
                 <li>
                     <label>R.Driver Particle Velocity</label>
