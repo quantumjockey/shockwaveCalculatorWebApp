@@ -18,6 +18,7 @@ angular
 
     // Shock Attributes
     this.FreeSurfaceReflection = 0;
+    this.ParticleVelocity = 0;
     this.ShockDuration = 0;
     this.ShockPressure = 0;
     this.ShockVelocity = 0;
@@ -98,31 +99,31 @@ angular
   $scope.CalculateShockProperties = function () {
 
     // Calculate Flyer Properties
-    $scope.FlyerDriverParticleVelocity = CalculateParticleVelocity($scope.Flyer.SelectedMaterial, $scope.Flyer.SelectedPhase, $scope.Driver.SelectedMaterial, $scope.Driver.SelectedPhase, $scope.FlyerVelocity, $scope.Tolerance);
-    $scope.Flyer.ShockVelocity = CalculateShockVelocity($scope.Flyer.SelectedPhase.DimensionlessSparameter, $scope.Flyer.SelectedPhase.IsentropicBulkSoundSpeed, $scope.FlyerDriverParticleVelocity);
-    $scope.Flyer.ShockPressure = CalculateShockPressure($scope.Flyer.SelectedMaterial.Density, $scope.FlyerDriverParticleVelocity, $scope.Flyer.ShockVelocity);
-    $scope.Flyer.FreeSurfaceReflection = CalculateFreeSurfaceReflection($scope.FlyerDriverParticleVelocity);
+    $scope.Flyer.ParticleVelocity = CalculateParticleVelocity($scope.Flyer.SelectedMaterial, $scope.Flyer.SelectedPhase, $scope.Driver.SelectedMaterial, $scope.Driver.SelectedPhase, $scope.FlyerVelocity, $scope.Tolerance);
+    $scope.Flyer.ShockVelocity = CalculateShockVelocity($scope.Flyer.SelectedPhase.DimensionlessSparameter, $scope.Flyer.SelectedPhase.IsentropicBulkSoundSpeed, $scope.Flyer.ParticleVelocity);
+    $scope.Flyer.ShockPressure = CalculateShockPressure($scope.Flyer.SelectedMaterial.Density, $scope.Flyer.ParticleVelocity, $scope.Flyer.ShockVelocity);
+    $scope.Flyer.FreeSurfaceReflection = CalculateFreeSurfaceReflection($scope.Flyer.ParticleVelocity);
     $scope.Flyer.ShockDuration = CalculateShockDuration($scope.Flyer.ShockVelocity, $scope.Flyer.Thickness);
 
     // Calculate Driver Properties
-    $scope.DriverSampleParticleVelocity = CalculateParticleVelocity($scope.Driver.SelectedMaterial, $scope.Driver.SelectedPhase, $scope.Sample.SelectedMaterial, $scope.Sample.SelectedPhase, $scope.FlyerDriverParticleVelocity, $scope.Tolerance);
-    $scope.Driver.ShockVelocity = CalculateShockVelocity($scope.Driver.SelectedPhase.DimensionlessSparameter, $scope.Driver.SelectedPhase.IsentropicBulkSoundSpeed, $scope.DriverSampleParticleVelocity);
-    $scope.Driver.ShockPressure = CalculateShockPressure($scope.Driver.SelectedMaterial.Density, $scope.DriverSampleParticleVelocity, $scope.Driver.ShockVelocity);
-    $scope.Driver.FreeSurfaceReflection = CalculateFreeSurfaceReflection($scope.DriverSampleParticleVelocity);
+    $scope.Driver.ParticleVelocity = CalculateParticleVelocity($scope.Driver.SelectedMaterial, $scope.Driver.SelectedPhase, $scope.Sample.SelectedMaterial, $scope.Sample.SelectedPhase, $scope.Flyer.ParticleVelocity, $scope.Tolerance);
+    $scope.Driver.ShockVelocity = CalculateShockVelocity($scope.Driver.SelectedPhase.DimensionlessSparameter, $scope.Driver.SelectedPhase.IsentropicBulkSoundSpeed, $scope.Driver.ParticleVelocity);
+    $scope.Driver.ShockPressure = CalculateShockPressure($scope.Driver.SelectedMaterial.Density, $scope.Driver.ParticleVelocity, $scope.Driver.ShockVelocity);
+    $scope.Driver.FreeSurfaceReflection = CalculateFreeSurfaceReflection($scope.Driver.ParticleVelocity);
     $scope.Driver.ShockDuration = CalculateShockDuration($scope.Driver.ShockVelocity, $scope.Driver.Thickness);
 
     // Calculate Sample Properties
-    $scope.SampleRearDriverParticleVelocity = CalculateParticleVelocity($scope.Sample.SelectedMaterial, $scope.Sample.SelectedPhase, $scope.RearDriver.SelectedMaterial, $scope.RearDriver.SelectedPhase, $scope.DriverSampleParticleVelocity, $scope.Tolerance);
-    $scope.Sample.ShockVelocity = CalculateShockVelocity($scope.Sample.SelectedPhase.DimensionlessSparameter, $scope.Sample.SelectedPhase.IsentropicBulkSoundSpeed, $scope.SampleRearDriverParticleVelocity);
-    $scope.Sample.ShockPressure = CalculateShockPressure($scope.Sample.SelectedMaterial.Density, $scope.SampleRearDriverParticleVelocity, $scope.Sample.ShockVelocity);
-    $scope.Sample.FreeSurfaceReflection = CalculateFreeSurfaceReflection($scope.SampleRearDriverParticleVelocity);
+    $scope.Sample.ParticleVelocity = CalculateParticleVelocity($scope.Sample.SelectedMaterial, $scope.Sample.SelectedPhase, $scope.RearDriver.SelectedMaterial, $scope.RearDriver.SelectedPhase, $scope.Driver.ParticleVelocity, $scope.Tolerance);
+    $scope.Sample.ShockVelocity = CalculateShockVelocity($scope.Sample.SelectedPhase.DimensionlessSparameter, $scope.Sample.SelectedPhase.IsentropicBulkSoundSpeed, $scope.Sample.ParticleVelocity);
+    $scope.Sample.ShockPressure = CalculateShockPressure($scope.Sample.SelectedMaterial.Density, $scope.Sample.ParticleVelocity, $scope.Sample.ShockVelocity);
+    $scope.Sample.FreeSurfaceReflection = CalculateFreeSurfaceReflection($scope.Sample.ParticleVelocity);
     $scope.Sample.ShockDuration = CalculateShockDuration($scope.Sample.ShockVelocity, $scope.Sample.Thickness);
 
     // Calculate Rear-Driver Properties
-    $scope.RearDriverBufferParticleVelocity = CalculateParticleVelocity($scope.RearDriver.SelectedMaterial, $scope.RearDriver.SelectedPhase, $scope.Buffer.SelectedMaterial, $scope.Buffer.SelectedPhase, $scope.SampleRearDriverParticleVelocity, $scope.Tolerance);
-    $scope.RearDriver.ShockVelocity = CalculateShockVelocity($scope.RearDriver.SelectedPhase.DimensionlessSparameter, $scope.RearDriver.SelectedPhase.IsentropicBulkSoundSpeed, $scope.RearDriverBufferParticleVelocity);
-    $scope.RearDriver.ShockPressure = CalculateShockPressure($scope.RearDriver.SelectedMaterial.Density, $scope.RearDriverBufferParticleVelocity, $scope.RearDriver.ShockVelocity);
-    $scope.RearDriver.FreeSurfaceReflection = CalculateFreeSurfaceReflection($scope.RearDriverBufferParticleVelocity);
+    $scope.RearDriver.ParticleVelocity = CalculateParticleVelocity($scope.RearDriver.SelectedMaterial, $scope.RearDriver.SelectedPhase, $scope.Buffer.SelectedMaterial, $scope.Buffer.SelectedPhase, $scope.Sample.ParticleVelocity, $scope.Tolerance);
+    $scope.RearDriver.ShockVelocity = CalculateShockVelocity($scope.RearDriver.SelectedPhase.DimensionlessSparameter, $scope.RearDriver.SelectedPhase.IsentropicBulkSoundSpeed, $scope.RearDriver.ParticleVelocity);
+    $scope.RearDriver.ShockPressure = CalculateShockPressure($scope.RearDriver.SelectedMaterial.Density, $scope.RearDriver.ParticleVelocity, $scope.RearDriver.ShockVelocity);
+    $scope.RearDriver.FreeSurfaceReflection = CalculateFreeSurfaceReflection($scope.RearDriver.ParticleVelocity);
     $scope.RearDriver.ShockDuration = CalculateShockDuration($scope.RearDriver.ShockVelocity, $scope.RearDriver.Thickness);
 
   };
@@ -134,7 +135,6 @@ angular
     }
     else {
       return (isoBulkSoundSpeed + (dimensionlessSparameter * particleVelocity));
-
     }
   };
 
