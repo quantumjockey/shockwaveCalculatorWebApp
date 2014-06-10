@@ -110,11 +110,9 @@ angular
   /////// CONTROLLER FUNCTION DEFINITIONS (END) ///////
 
   /////// CONTROLLER INTIALIZATION (BEGIN) ///////
-
-  $scope.materials = materialsFactory.getMaterials();
-
-  // Initialize material select
-  $scope.SelectedMaterial = $scope.materials[0];
-
+  materialsFactory.success(function(data){
+    $scope.materials = data;
+    $scope.SelectedMaterial = $scope.materials[0];
+  });
   /////// CONTROLLER INTIALIZATION (END) ///////
 });

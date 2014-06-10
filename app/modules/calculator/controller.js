@@ -134,31 +134,30 @@ angular
   /////// CONTROLLER FUNCTION DEFINITIONS (END) ///////
 
   /////// CONTROLLER INTIALIZATION (BEGIN) ///////
+  materialsFactory.success(function(data){
 
-  // Initialize materials array
-  $scope.materials = materialsFactory.getMaterials();
+    // Initialize materials
+    $scope.materials = data;
+    $scope.layers = [];
 
-  // Initialize material layers
-  $scope.layers = [];
+    var flyer = new Layer('Flyer', $scope.materials, 0);
+    var driver = new Layer('Driver', $scope.materials, 1);
+    var sample = new Layer('Sample', $scope.materials, 2);
+    var rearDriver = new Layer('Rear Driver', $scope.materials, 3);
+    var buffer = new Layer('Buffer', $scope.materials, 4);
 
-  var flyer = new Layer('Flyer', $scope.materials, 0);
-  var driver = new Layer('Driver', $scope.materials, 1);
-  var sample = new Layer('Sample', $scope.materials, 2);
-  var rearDriver = new Layer('Rear Driver', $scope.materials, 3);
-  var buffer = new Layer('Buffer', $scope.materials, 4);
+    $scope.layers.push(flyer);
+    $scope.layers.push(driver);
+    $scope.layers.push(sample);
+    $scope.layers.push(rearDriver);
+    $scope.layers.push(buffer);
 
-  $scope.layers.push(flyer);
-  $scope.layers.push(driver);
-  $scope.layers.push(sample);
-  $scope.layers.push(rearDriver);
-  $scope.layers.push(buffer);
+    // Initialize calculation fields
+    $scope.FlyerVelocity = 0;
+    $scope.Tolerance = settingsFactory.Tolerance;
 
-  // Initialize calculation fields
-  $scope.FlyerVelocity = 0;
-  $scope.Tolerance = settingsFactory.Tolerance;
-
-  // Perform primary calculation to zero out property fields
-  $scope.CalculateShockProperties();
-
+    // Perform primary calculation to zero out property fields
+    $scope.CalculateShockProperties();
+  });
   /////// CONTROLLER INTIALIZATION (END) ///////
 });
