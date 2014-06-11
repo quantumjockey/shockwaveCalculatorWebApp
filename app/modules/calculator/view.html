@@ -13,7 +13,7 @@
                 <li ng-repeat="layer in layers">
                     <label>{{layer .Name}} Material</label>
                     <select class="mat" ng-model="layer.SelectedMaterial"
-                        ng-change="layer .Reset()"
+                        ng-change="layer.Reset(); CalculateShockProperties()"
                         ng-options="mat.Name + ' (' + mat.Density + ')' for mat in materials">
                     </select>
                     <label>Phase</label>

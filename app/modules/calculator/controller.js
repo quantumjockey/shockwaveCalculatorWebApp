@@ -29,7 +29,6 @@ angular
   // Description: Resets layer material for calculations.
   Layer.prototype.Reset = function () {
     this.SelectedPhase = this.SelectedMaterial.Phases[0];
-    $scope.CalculateShockProperties();
   };
 
   /////// OBJECT PROTOTYPES (END) ///////
