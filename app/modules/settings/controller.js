@@ -2,20 +2,20 @@
 
 angular
   .module('settings')
-  .controller('SettingsCtrl', function ($scope, settingsFactory) {
+  .controller('SettingsCtrl', function ($scope, settingsService) {
 
   /////// CONTROLLER FUNCTION DEFINITIONS (BEGIN) ///////
 
   // Description: Saves settings to the factory.
   $scope.SaveSettings = function () {
-    settingsFactory.Tolerance = $scope.Tolerance;
+    settingsService.Tolerance = $scope.Tolerance;
   };
 
   /////// CONTROLLER FUNCTION DEFINITIONS (END) ///////
 
   /////// CONTROLLER INTIALIZATION (BEGIN) ///////
 
-  $scope.Tolerance = settingsFactory.Tolerance;
+  $scope.Tolerance = settingsService.Tolerance;
 
   /////// CONTROLLER INTIALIZATION (BEGIN) ///////
 });

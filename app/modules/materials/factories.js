@@ -2,6 +2,6 @@
 
 angular
   .module('materials')
-  .factory('materialsFactory', function ($http) {
+  .factory('materialsService', function ($http) {
     return $http.get('modules/materials/materials.json');
   });

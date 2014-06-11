@@ -2,7 +2,7 @@
 
 angular
   .module('calculator')
-  .controller('CalculatorCtrl', function ($scope, materialsFactory, settingsFactory) {
+  .controller('CalculatorCtrl', function ($scope, materialsService, settingsService) {
 
   /////// OBJECT PROTOTYPES (BEGIN) ///////
 
@@ -134,7 +134,7 @@ angular
   /////// CONTROLLER FUNCTION DEFINITIONS (END) ///////
 
   /////// CONTROLLER INTIALIZATION (BEGIN) ///////
-  materialsFactory.success(function(data){
+  materialsService.success(function(data){
 
     // Initialize materials
     $scope.materials = data;
@@ -154,7 +154,7 @@ angular
 
     // Initialize calculation fields
     $scope.FlyerVelocity = 0;
-    $scope.Tolerance = settingsFactory.Tolerance;
+    $scope.Tolerance = settingsService.Tolerance;
 
     // Perform primary calculation to zero out property fields
     $scope.CalculateShockProperties();

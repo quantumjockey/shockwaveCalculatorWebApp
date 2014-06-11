@@ -2,7 +2,7 @@
 
 angular
   .module('materials')
-  .controller('MaterialsCtrl', function ($scope, materialsFactory) {
+  .controller('MaterialsCtrl', function ($scope, materialsService) {
 
   /////// CONTROLLER FUNCTION DEFINITIONS (BEGIN) ///////
 
@@ -110,7 +110,7 @@ angular
   /////// CONTROLLER FUNCTION DEFINITIONS (END) ///////
 
   /////// CONTROLLER INTIALIZATION (BEGIN) ///////
-  materialsFactory.success(function(data){
+  materialsService.success(function(data){
     $scope.materials = data;
     $scope.SelectedMaterial = $scope.materials[0];
   });
