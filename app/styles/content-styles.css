@@ -35,8 +35,8 @@ label.output {
     border-color:gray;
     border-style:solid;
     border-width:1px;
-    margin-left:5px;
-    margin-right:5px;
+    margin:5px;
+    padding:5px;
 }
 
 label.textArea {
