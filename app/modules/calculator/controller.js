@@ -2,36 +2,7 @@
 
 angular
   .module('calculator')
-  .controller('CalculatorCtrl', function ($scope, materialsService, settingsService) {
-
-  /////// OBJECT PROTOTYPES (BEGIN) ///////
-
-  function Layer(title, materials, id) {
-
-    // Layer Attributes
-    this.ID = id;
-    this.Name = title;
-    this.Thickness = 0;
-
-    // Material Attributes
-    this.SelectedMaterial = materials[0];
-    this.SelectedPhase = this.SelectedMaterial.Phases[0];
-
-    // Shock Attributes
-    this.FreeSurfaceReflection = 0;
-    this.ParticleVelocity = 0;
-    this.ShockDuration = 0;
-    this.ShockPressure = 0;
-    this.ShockVelocity = 0;
-
-  }
-
-  // Description: Resets layer material for calculations.
-  Layer.prototype.Reset = function () {
-    this.SelectedPhase = this.SelectedMaterial.Phases[0];
-  };
-
-  /////// OBJECT PROTOTYPES (END) ///////
+  .controller('CalculatorCtrl', function ($scope, LayerService, materialsService, settingsService) {
 
   /////// CONTROLLER FUNCTION DEFINITIONS (BEGIN) ///////
 
@@ -139,11 +110,11 @@ angular
     $scope.materials = data;
     $scope.layers = [];
 
-    var flyer = new Layer('Flyer', $scope.materials, 0);
-    var driver = new Layer('Driver', $scope.materials, 1);
-    var sample = new Layer('Sample', $scope.materials, 2);
-    var rearDriver = new Layer('Rear Driver', $scope.materials, 3);
-    var buffer = new Layer('Buffer', $scope.materials, 4);
+    var flyer = LayerService.createLayer('Flyer', $scope.materials, 0);
+    var driver = LayerService.createLayer('Driver', $scope.materials, 1);
+    var sample = LayerService.createLayer('Sample', $scope.materials, 2);
+    var rearDriver = LayerService.createLayer('Rear Driver', $scope.materials, 3);
+    var buffer = LayerService.createLayer('Buffer', $scope.materials, 4);
 
     $scope.layers.push(flyer);
     $scope.layers.push(driver);
