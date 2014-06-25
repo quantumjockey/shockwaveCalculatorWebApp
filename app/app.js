@@ -1,8 +1,9 @@
 'use strict';
 
+angular.module('layer',[]);
 angular.module('materials',[]);
 angular.module('settings',[]);
-angular.module('calculator', [ 'materials', 'settings' ]);
+angular.module('calculator', [ 'layer', 'materials', 'settings' ]);
 
 angular
   .module('shockwaveCalculatorWebApp', [
