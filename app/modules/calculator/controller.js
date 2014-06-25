@@ -2,7 +2,7 @@
 
 angular
   .module('calculator')
-  .controller('CalculatorCtrl', function ($scope, LayerService, MaterialsService, SettingsService) {
+  .controller('CalculatorCtrl', ['$scope', 'LayerService', 'MaterialsService', 'SettingsService', function ($scope, LayerService, MaterialsService, SettingsService) {
 
   /////// CONTROLLER FUNCTION DEFINITIONS (BEGIN) ///////
 
@@ -130,4 +130,4 @@ angular
     $scope.CalculateShockProperties();
   });
   /////// CONTROLLER INTIALIZATION (END) ///////
-});
+}]);

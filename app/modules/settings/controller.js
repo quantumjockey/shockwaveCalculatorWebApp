@@ -2,7 +2,7 @@
 
 angular
   .module('settings')
-  .controller('SettingsCtrl', function ($scope, SettingsService) {
+  .controller('SettingsCtrl', [ '$scope', 'SettingsService', function ($scope, SettingsService) {
 
   /////// CONTROLLER FUNCTION DEFINITIONS (BEGIN) ///////
 
@@ -18,4 +18,4 @@ angular
   $scope.Tolerance = settingsService.Tolerance;
 
   /////// CONTROLLER INTIALIZATION (BEGIN) ///////
-});
+}]);
