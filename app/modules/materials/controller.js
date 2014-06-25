@@ -2,7 +2,7 @@
 
 angular
   .module('materials')
-  .controller('MaterialsCtrl', function ($scope, materialsService) {
+  .controller('MaterialsCtrl', function ($scope, MaterialsService) {
 
   /////// CONTROLLER FUNCTION DEFINITIONS (BEGIN) ///////
 

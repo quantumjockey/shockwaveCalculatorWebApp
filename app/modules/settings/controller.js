@@ -2,7 +2,7 @@
 
 angular
   .module('settings')
-  .controller('SettingsCtrl', function ($scope, settingsService) {
+  .controller('SettingsCtrl', function ($scope, SettingsService) {
 
   /////// CONTROLLER FUNCTION DEFINITIONS (BEGIN) ///////
 

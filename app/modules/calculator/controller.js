@@ -2,7 +2,7 @@
 
 angular
   .module('calculator')
-  .controller('CalculatorCtrl', function ($scope, LayerService, materialsService, settingsService) {
+  .controller('CalculatorCtrl', function ($scope, LayerService, MaterialsService, SettingsService) {
 
   /////// CONTROLLER FUNCTION DEFINITIONS (BEGIN) ///////
 

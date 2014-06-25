@@ -2,7 +2,7 @@
 
 angular
   .module('settings')
-	.factory('settingsService', function () {
+	.factory('SettingsService', function () {
 
     var factory = {};
 
