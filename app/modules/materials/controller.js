@@ -110,7 +110,7 @@ angular
   /////// CONTROLLER FUNCTION DEFINITIONS (END) ///////
 
   /////// CONTROLLER INTIALIZATION (BEGIN) ///////
-  materialsService.success(function(data){
+  MaterialsService.success(function(data){
     $scope.materials = data;
     $scope.SelectedMaterial = $scope.materials[0];
   });

@@ -104,7 +104,7 @@ angular
   /////// CONTROLLER FUNCTION DEFINITIONS (END) ///////
 
   /////// CONTROLLER INTIALIZATION (BEGIN) ///////
-  materialsService.success(function(data){
+  MaterialsService.success(function(data){
 
     // Initialize materials
     $scope.materials = data;
@@ -124,7 +124,7 @@ angular
 
     // Initialize calculation fields
     $scope.FlyerVelocity = 0;
-    $scope.Tolerance = settingsService.Tolerance;
+    $scope.Tolerance = SettingsService.Tolerance;
 
     // Perform primary calculation to zero out property fields
     $scope.CalculateShockProperties();
