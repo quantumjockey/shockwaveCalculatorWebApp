@@ -12,13 +12,39 @@ This repository is a complete refactoring of the original application sources fo
 
 ## Requirements
 
-Development with this repository requires a local [Node.js](https://nodejs.org/) installation. [NPM](https://www.npmjs.com/) and other node-specific components are included with this installation. Please see the Node website for installation instructions specific to your operating system.
+Development with this repository requires local [Node.js](https://nodejs.org/), [Bower](http://bower.io/), and [SASS](http://sass-lang.com/) installations.
+
+### Node.js
+
+Please see the [Node website](https://nodejs.org/) for installation instructions specific to your operating system. [NPM](https://www.npmjs.com/) and other node-specific components are included with this installation.
+
+### Bower
+
+While NPM is used for managing server-side dependencies, Bower is used for managing client-side dependencies for the SPA. Instructions for installing Bower for use on your development machine can be found in the [landing page installation/configuration notes](http://bower.io/#install-bower).
+
+### SASS/SCSS
+
+Stylesheets for this project are written in the [SCSS](http://sass-lang.com/documentation/file.SCSS_FOR_SASS_USERS.html) dialect of SASS. Consequently, the SASS compiler needs to be installed in order to work with these files (and any included SASS plugins/pre-compilation modules). Instructions for installing the SASS compiler for use on your machine can be found [here](http://sass-lang.com/install).
+
+Though styles for the application shell are structured according to [SASS-recommended project hierarchy](http://thesassway.com/beginner/how-to-structure-a-sass-project), all styles specific to application modules and directives are placed in ```_styles.scss``` files within their respective module/directive folders.
 
 ## Instructions
 
-Next, clone this repository to your machine. Be sure to install all packages locally using,
+Clone this repository to your machine. Be sure to install all server-side packages locally using,
 
 	$ npm install
+
+Note that any warnings that come up may result from unmet dependencies being registered despite newer versions of those dependencies being downloaded and installed. As of this writing, these warnings can be safely ignored. Further information will be available as dependency updates are released.
+
+Then, install all client-side packages locally using,
+
+	$ bower install
+
+The application server can now be started by running,
+
+	$ npm start
+
+The app can now be viewed in the browser at [localhost:7000](http://localhost:7000/).
 
 If you're developing the old-school way using your favorite text editor and the Terminal (or Command Prompt for you Windows Junkies), that's all you need!
 
@@ -32,13 +58,14 @@ At the time of this writing, this repository has been deployed to [shockwavecalc
 
 This application utilizes the [Heroku Multi-Buildpack configuration](https://github.com/heroku/heroku-buildpack-multi) via the .buildpacks file. As of this writing, the buildpack stack includes:
 
+*  [Ruby buildpack](https://github.com/heroku/heroku-buildpack-ruby) - For SASS and other pre-compile gems
 *  [Node.js buildpack](https://github.com/heroku/heroku-buildpack-nodejs) - For deploying as Node application build to Heroku
 
 Any future buildpacks that are to be included with this application must be listed therein. Note that buildpacks for any pre-compile/trans-pile components must be listed before the Node buildpack in order for Heroku's build process to succeed (for this application). Also, note that the listing within .buildpacks points directly to *.git for each.
 
-In order to ensure that this app is properly configured for accepting a multi-pack configuration via .buildpacks, open the Heroku CLI in Terminal(OSX/Unix) or PowerShell(Windows) and run:
+In order to ensure that this app is properly configured for accepting a multi-pack configuration via .buildpacks, open the Heroku CLI in Terminal (OSX/Unix) or PowerShell (Windows) and run:
 
-    $ heroku buildpacks:set --app shockwavecalculatorredux https://github.com/heroku/heroku-buildpack-multi.git
+    $ heroku buildpacks:set --app shockwavecalculator https://github.com/heroku/heroku-buildpack-multi.git
 
 ...before pushing sources to heroku master. This will clear existing defaults and automatically load the content of .buildpacks before executing each application build.
 
