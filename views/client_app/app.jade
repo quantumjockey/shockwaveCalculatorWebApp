@@ -1,18 +1,18 @@
-div(ng-app="shockwaveCalculatorWebApp")
+div(ng-app='shockwaveCalculatorWebApp')
 
 	// Application header
-	div(class="header")
-		ul(class="mainMenu")
+	div(class='header')
+		ul(class='mainMenu')
 			li
-				a(ng-href="#/Calculator") Calculator
+				a(ng-href='#/Calculator') Calculator
 			li
-				a(ng-href="#/Settings") Settings
+				a(ng-href='#/Settings') Settings
 			li
-				a(ng-href="#/Materials") Materials
+				a(ng-href='#/Materials') Materials
 
 	// Dynamic application content
-	div(class="content" ng-view="")
+	div(class='content' ng-view='')
 
 	// Application footer
-	div(class="footer") 
-		p © 2014 Nicola B. DiPalma &amp; Oliver Tschauner, PhD. unless otherwise indicated. Framework powered by #[a(href="http://angularjs.org/" target="_blank")] AngularJS
+	div(class='footer') 
+		p © 2014 Nicola B. DiPalma &amp; Oliver Tschauner, PhD. unless otherwise indicated. Framework powered by #[a(href='http://angularjs.org/' target='_blank')] AngularJS
