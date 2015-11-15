@@ -1,0 +1,12 @@
+{
+  "name": "shockwavecalculator",
+  "description": "An application for calculating shockwave properties in layered materials.",
+  "main": "",
+  "authors": [
+    "Nicola B. DiPalma"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/quantumjockey/shockwavecalculator",
+  "moduleType": [],
+  "private": true,
+}
