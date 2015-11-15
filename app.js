@@ -35,8 +35,10 @@ app.use('/', index);
 // static assignment for public assets here below pre-compile tools to enable refresh upon changes
 app.use(express.static(path.join(__dirname, 'public')));
 
-// for statically serving Angular app folder content
+// for statically serving Angular app folder content and supplementary components
 app.use(express.static(path.join(__dirname, 'app')));
+app.use('/bower_components',  express.static(path.join(__dirname, 'bower_components')));
+app.use('/public/stylesheets/main.css',  express.static(path.join(__dirname, 'public/stylesheets/main.css')));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
