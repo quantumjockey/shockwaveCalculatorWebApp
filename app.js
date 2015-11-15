@@ -32,8 +32,11 @@ app.use(sassMiddleware({
 var index = require('./routes/index');
 app.use('/', index);
 
-// register statically-served directories
+// static assignment for public assets here below pre-compile tools to enable refresh upon changes
 app.use(express.static(path.join(__dirname, 'public')));
+
+// for statically serving Angular app folder content
+app.use(express.static(path.join(__dirname, 'app')));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
