@@ -37,3 +37,6 @@ $RECYCLE.BIN/
 # Installed node modules
 node_modules/
 npm-debug.log
+
+# SASS-generated css
+public/stylesheets/main.css

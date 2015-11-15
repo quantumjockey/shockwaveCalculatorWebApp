@@ -3,6 +3,7 @@ var path = require('path');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var sassMiddleware = require('node-sass-middleware');
 
 // create app instance
 var app = express();
@@ -11,11 +12,21 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-// setup loggin/parsing
+// (execute miscellaneous tasks)
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+// for initializing node-sass for transpile
+app.use(sassMiddleware({
+  src: path.join(__dirname, 'public/stylesheets/sass'),
+  dest: path.join(__dirname, 'public/stylesheets'),
+  debug: true,
+  indentedSyntax: false, // 'false' for reading SCSS sources, 'true' for reading SASS sources, doesn't seem to work for both
+  outputStyle: 'compressed',
+  prefix: '/stylesheets'
+}));
 
 // register application routes
 var index = require('./routes/index');
@@ -30,8 +41,6 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
-
-// error handlers
 
 // development error handler
 // will print stacktrace
