@@ -1,0 +1,33 @@
+﻿ul.mainMenu {
+
+  margin: 10px;
+  text-align: center;
+
+  a {
+    color: white;
+    display: block;
+    font-size: 17px;
+    padding: 10px;
+    text-shadow: 1px 1px 1px black;
+  }
+
+  li {
+
+    background-color: #E60000;
+    border-radius: 10px;
+    border-style: inset;
+    border-width: 3px;
+    box-shadow: 2px 2px 5px black;
+    display: inline-block;
+    margin: 5px;
+    width: 200px;
+
+    &:hover {
+      background: #B20000;
+      border-style: outset;
+      cursor: pointer;
+    }
+
+  }
+
+}

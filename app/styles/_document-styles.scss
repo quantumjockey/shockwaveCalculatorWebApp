@@ -1,0 +1,19 @@
+a {
+
+	text-decoration: none;
+
+	&:hover {
+		text-decoration: none;
+	}
+
+}
+
+select {
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+ul {
+	list-style: none;
+	padding-left: 0;
+}
