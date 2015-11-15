@@ -8,14 +8,14 @@ angular
 
   // Description: Saves settings to the factory.
   $scope.SaveSettings = function () {
-    settingsService.Tolerance = $scope.Tolerance;
+    SettingsService.Tolerance = $scope.Tolerance;
   };
 
   /////// CONTROLLER FUNCTION DEFINITIONS (END) ///////
 
   /////// CONTROLLER INTIALIZATION (BEGIN) ///////
 
-  $scope.Tolerance = settingsService.Tolerance;
+  $scope.Tolerance = SettingsService.Tolerance;
 
   /////// CONTROLLER INTIALIZATION (BEGIN) ///////
 }]);
