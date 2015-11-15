@@ -8,27 +8,52 @@ This software is a collaborative effort among [Nicola B. DiPalma](http://nicolad
 
 ## Notes
 
-This repository was scaffolded with [Yeoman](http://yeoman.io/) (on OSX) and architected according to a slightly customized interpretation of [Google's Style guide for AngularJS](http://google-styleguide.googlecode.com/svn/trunk/angularjs-google-style.html). It stresses a module-centric pattern rather than the app/components pattern recently generalized by the Angular team. This approach was chosen to reduce the risk of coupling among application components and is intended to make markup, styles, and scripts associated with each module easier to locate within the application.
+This repository is a complete refactoring of the original application sources for deployment to [Heroku](https://www.heroku.com/). The application shell is based on [Node.js](https://nodejs.org/) (via [Express.js](http://expressjs.com/)), and the client application is based on Google's [AngularJS](https://angularjs.org/).
 
-This version of the tool was developed using components scaffolded from the [Yeoman angular generator](https://github.com/yeoman/generator-angular). This includes management of external packages/dependencies via [Bower](http://bower.io/), app serving, debug, and build processes via [Grunt](http://gruntjs.com/), and unit-testing via [Karma](http://karma-runner.github.io/0.12/index.html). Some modification may be necessary if the developer chooses to work with a cloned repository in a live-reload-enabled editing environment like [Brackets](http://brackets.io/?lang=en). However, the extent of these changes is unknown as development with this repository has not been completely tested with Brackets - use caution as unexpected results (and headaches) may occur.
+## Requirements
+
+Development with this repository requires a local [Node.js](https://nodejs.org/) installation. [NPM](https://www.npmjs.com/) and other node-specific components are included with this installation. Please see the Node website for installation instructions specific to your operating system.
 
 ## Instructions
 
-To get your machine ready for development with this repository:
+Next, clone this repository to your machine. Be sure to install all packages locally using,
 
-1. Clone the repository to your machine.
-2. Navigate to the directory you cloned your repository to via Terminal.
-3. Install [GruntJS](http://gruntjs.com/) to your machine by following instructions provided on the [Getting Started Page](http://gruntjs.com/getting-started).
-4. Install a local grunt (without -g option) to the repository so that existing Gruntfile.js configurations can be properly applied during the serve operation.
-5. Install [Bower](http://bower.io/) to your machine by following instructions provided on the [Install Bower Page](http://bower.io/#install-bower) posted on the site.
-6. Load dependencies to the cloned repository by running bower locally on the [bower.json manifest file](http://bower.io/docs/creating-packages/#bowerjson).
+	$ npm install
 
-Then, run:
+If you're developing the old-school way using your favorite text editor and the Terminal (or Command Prompt for you Windows Junkies), that's all you need!
 
-		$ grunt serve
+If you're planning to wrap this module in a project with your favorite IDE, tips & tricks will be included soon in the sections below.
 
-And you're ready to go!
+## Heroku Application Hosting
 
-Livereload and hosting are already configured out-of-the-box.
+At the time of this writing, this repository has been deployed to [shockwavecalculator.herokuapp.com](https://shockwavecalculator.herokuapp.com/)
 
-As mentioned above, some modification may be necessary if the developer chooses to work with a cloned repository in a live-reload-enabled editing environment like [Brackets](http://brackets.io/?lang=en). However, the extent of these changes is unknown as development with this repository has not been completely tested with Brackets - use caution as unexpected results (and headaches) may occur.
+### Buildpack Configuration
+
+This application utilizes the [Heroku Multi-Buildpack configuration](https://github.com/heroku/heroku-buildpack-multi) via the .buildpacks file. As of this writing, the buildpack stack includes:
+
+*  [Node.js buildpack](https://github.com/heroku/heroku-buildpack-nodejs) - For deploying as Node application build to Heroku
+
+Any future buildpacks that are to be included with this application must be listed therein. Note that buildpacks for any pre-compile/trans-pile components must be listed before the Node buildpack in order for Heroku's build process to succeed (for this application). Also, note that the listing within .buildpacks points directly to *.git for each.
+
+In order to ensure that this app is properly configured for accepting a multi-pack configuration via .buildpacks, open the Heroku CLI in Terminal(OSX/Unix) or PowerShell(Windows) and run:
+
+    $ heroku buildpacks:set --app shockwavecalculatorredux https://github.com/heroku/heroku-buildpack-multi.git
+
+...before pushing sources to heroku master. This will clear existing defaults and automatically load the content of .buildpacks before executing each application build.
+
+### env Configuration
+
+There are no specific env configurations required at this time.
+
+### Deploying to Heroku
+
+Since this repository is linked to the application's remote GitHub repo, you can deploy a new version of the app to Heroku by pushing commits from local master to remote master using,
+
+    $ git push origin develop:master
+
+via the Terminal or Powershell console while within the local directory for the repository. Alternatively, use your GUI of choice for deploying to the remote master branch on GitHub.
+
+If your push comes about after merging another branch with master, or making significant changes to the application source, be sure that the app runs locally before pushing commits. Otherwise, you'll be deploying a broken app.
+
+***Happy Development!***
