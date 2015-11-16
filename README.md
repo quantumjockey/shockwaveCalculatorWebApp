@@ -34,7 +34,7 @@ Clone this repository to your machine. Be sure to install all server-side packag
 
 	$ npm install
 
-Note that any warnings that come up may result from unmet dependencies being registered despite newer versions of those dependencies being downloaded and installed. As of this writing, these warnings can be safely ignored. Further information will be available as dependency updates are released. Also, note that manual execution of Bower is not required as all packages for client-side dependencies will be automatocally installed during the ```postinstall``` task.
+Note that any warnings that come up may result from unmet dependencies being registered despite newer versions of those dependencies being downloaded and installed. As of this writing, these warnings can be safely ignored. Further information will be available as dependency updates are released. Also, note that manual execution of Bower is not required as all packages for client-side dependencies will be automatically installed during the ```postinstall``` task.
 
 The application server can now be started by running,
 
