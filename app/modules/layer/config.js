@@ -1,7 +1,7 @@
 'use strict';
 
 angular
-  .module('layer')
+	.module('layer')
 	.config(function () {
 
 	});
