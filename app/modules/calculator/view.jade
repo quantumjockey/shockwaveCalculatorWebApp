@@ -13,7 +13,7 @@
                     label {{layer .Name}} Material
                     select(class='mat' ng-model='layer.SelectedMaterial'
                         ng-change='layer.Reset(); CalculateShockProperties()'
-                        ng-options='mat.Name + ' (' + mat.Density + ')' for mat in materials')
+                        ng-options='mat.Name + " (" + mat.Density + ")" for mat in materials')
                     label Phase
                     select(class='phase' ng-model='layer.SelectedPhase'
                         ng-change='CalculateShockProperties()'

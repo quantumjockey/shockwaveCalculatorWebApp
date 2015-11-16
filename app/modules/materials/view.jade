@@ -1,6 +1,6 @@
 ﻿div
 	h1 Database of Shockwave Properties for Various Materials
-	p
+	p.
 		You can view shock properties for various materials below. We'll make this searchable at some point. For now, use the list box 
 		to select the material for which you want to view shockwave data. All data is excerpted from tables created by Thomas Ahrens, PhD.
 		Table names and links are listed below.
@@ -9,7 +9,7 @@
 		h3 Available Materials
 		select(class='mat' 
 			ng-model='SelectedMaterial'
-			ng-options='mat.Name + ' (' + mat.Density + ')' for mat in materials')
+			ng-options='mat.Name + " (" + mat.Density + ")" for mat in materials')
 	
 	div
 		ul
