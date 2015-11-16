@@ -1,0 +1,66 @@
+﻿div
+    h1 Shockwave Properties Calculator
+    p.
+        Below is a calculator that dynamically evaluates shock properties in various materials from the materials 
+        database. We've been experimenting with variations on this for a while, and are constantly striving to make 
+        it experiment-ready. Any suggestions for improving accuracy and ease-of-use are greatly appreciated!
+    div
+        h3 Input Fields
+        div
+            h4 Materials Selection
+            ul
+                li(ng-repeat='layer in layers')
+                    label {{layer .Name}} Material
+                    select(class='mat' ng-model='layer.SelectedMaterial'
+                        ng-change='layer.Reset(); CalculateShockProperties()'
+                        ng-options='mat.Name + ' (' + mat.Density + ')' for mat in materials')
+                    label Phase
+                    select(class='phase' ng-model='layer.SelectedPhase'
+                        ng-change='CalculateShockProperties()'
+                        ng-options='phase.PhaseNumber for phase in layer.SelectedMaterial.Phases')
+
+        div
+            h4 Flyer Properties
+            ul
+                li
+                    label Flyer Velocity
+                    input(type='text' 
+                        ng-change='CalculateShockProperties()'
+                        ng-model='FlyerVelocity')
+                    label km/s
+
+        div
+            h4 Material Thicknesses
+            ul
+                li(ng-if='layer.ID != 4' ng-repeat='layer in layers')
+                    label {{layer.Name}} Material Thickness
+                    input(type='text' 
+                        ng-change='CalculateShockProperties()'
+                        ng-model='layer.Thickness')
+                    label mm
+
+    div
+        h3 Shock Properties
+        div(class='resultsContainer' ng-if='layer.ID != 4' ng-repeat='layer in layers')
+            h4 {{layer.Name}} Properties
+            ul
+                li
+                    label {{layer.Name}} Particle Velocity
+                    label(class='output') {{ layer.ParticleVelocity | number:3 }}
+                    label km/s
+                li
+                    label Shock Velocity into {{layer.Name}}
+                    label(class='output') {{ layer.ShockVelocity | number:3 }}
+                    label km/s
+                li
+                    label Shock Pressure into {{layer.Name}}
+                    label(class='output') {{ layer.ShockPressure | number:3 }}
+                    label GPa
+                li
+                    label Free-Surface Reflection in {{layer.Name}}
+                    label(class='output') {{ layer.FreeSurfaceReflection | number:3 }}
+                    label km/s
+                li
+                    label Duration in {{layer.Name}}
+                    label(class='output') {{ layer.ShockDuration | number:7 }}
+                    label s

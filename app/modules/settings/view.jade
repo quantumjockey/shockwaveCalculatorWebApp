@@ -1,0 +1,11 @@
+﻿div
+	div
+		h3 General Settings
+		ul
+			li
+				label Particle Velocity Tolerance ±
+				input(
+					type='text' 
+					ng-change='SaveSettings()'
+					ng-model='Tolerance')
+				label m/s

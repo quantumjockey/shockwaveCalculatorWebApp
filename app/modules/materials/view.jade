@@ -1,0 +1,86 @@
+﻿div
+	h1 Database of Shockwave Properties for Various Materials
+	p
+		You can view shock properties for various materials below. We'll make this searchable at some point. For now, use the list box 
+		to select the material for which you want to view shockwave data. All data is excerpted from tables created by Thomas Ahrens, PhD.
+		Table names and links are listed below.
+	
+	div
+		h3 Available Materials
+		select(class='mat' 
+			ng-model='SelectedMaterial'
+			ng-options='mat.Name + ' (' + mat.Density + ')' for mat in materials')
+	
+	div
+		ul
+			li
+				label #[b Name:] {{SelectedMaterial.Name}}
+			li
+				label #[b Formula:] {{SelectedMaterial.Formula}}
+			
+			li
+				label #[b Density:] {{SelectedMaterial.Density}} Mg/m³
+			
+			li
+				label #[b Special Measurement Conditions:] {{GetMeasurementCondition(SelectedMaterial.SpecialMeasurementIdentifier)}}
+			
+			li
+				label #[b Internal References:] {{SelectedMaterial.References}}
+			
+			li
+				label #[b Remarks:] {{SelectedMaterial.Remarks}}
+
+	div
+		h4 Phases List:
+		table
+			thead
+				tr
+					th Phase Number
+					th Phase Type
+					th C₀
+					th Δ C₀ (error)
+					th S
+					th ΔS (error)
+					th U (lower)
+					th U (upper)
+					th No. of Data
+			tbody
+				tr(ng-repeat='phase in SelectedMaterial.Phases')
+					td {{phase.PhaseNumber}}
+					td {{GetPhaseType(phase.PhaseNumber)}}
+					td {{phase.IsentropicBulkSoundSpeed}}
+					td {{phase.IsentropicBulkSoundSpeedError}}
+					td {{phase.DimensionlessSparameter}}
+					td {{phase.DimensionlessSparameterError}}
+					td {{phase.ShockVelocityLower}}
+					td {{phase.ShockVelocityUpper}}
+					td {{phase.NumberOfData}}
+
+	div
+		h1 References List
+		p.
+			This software takes in user data from high pressure and temperature shockwave 
+			experiments and calculates shock properties based on modeling implemented by 
+			Thomas J. Ahrens in his paper:
+
+		p #[b Shock Wave Techniques for Geophysics and Planetary Physics]
+		p Thomas J. Ahrens
+		p Seismological Laboratory - California Institute of Technology - Pasadena California 91125
+		p Published in 'Methods of Experimental Physics' - Vol 24, Part A, Page 185.
+		p Copyright 1987 by Academic Press, Inc.
+		p.
+			Full text can be viewed at: 
+			<a href='http://www.fas.harvard.edu/~planets/sstewart/ahrens/index.html' target='_blank'>http://www.fas.harvard.edu/~planets/sstewart/ahrens/index.html</a> 
+			(Item#: 179 - Parts <a href='http://www.fas.harvard.edu/~planets/sstewart/ahrens/Papers_pdf/Seismo_1396p1.pdf' target='_blank'>1</a> 
+			and <a href='http://www.fas.harvard.edu/~planets/sstewart/ahrens/Papers_pdf/Seismo_1396p2.pdf' target='_blank'>2</a>)
+
+		p All data for default materials was taken from the table:
+		p #[b Shock Wave Data For Minerals]
+		p Thomas J. Ahrens, Mary L. Johnson
+		p Seismological Laboratory - California Institute of Technology - Pasadena California 91125
+		p Published in Mineral Physics &amp; Crystallography: A Handbook of Physical Constants - Pages 144-171
+		p #[b Shock Experiment Calculator - WebApp]
+		p Version 0.8.1
+		p Authored by: Nicola B. DiPalma &amp; Oliver Tschauner PhD.
+		p Release for use under the #[a(href='http://www.gnu.org/licenses/gpl.html' target='_blank') GNU General Public License]
+		p May 31st, 2014
