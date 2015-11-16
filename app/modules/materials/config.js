@@ -5,7 +5,7 @@ angular
 	.config(function ($routeProvider) {
 		$routeProvider
 			.when('/Materials', {
-				templateUrl: 'modules/materials/view.html',
+				templateUrl: 'modules/materials/view',
 				controller: 'MaterialsCtrl'
 			});
 	});

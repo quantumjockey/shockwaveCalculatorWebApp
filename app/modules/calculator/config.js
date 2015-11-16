@@ -5,7 +5,7 @@ angular
 	.config(function ($routeProvider) {
 		$routeProvider
 			.when('/Calculator', {
-				templateUrl: 'modules/calculator/view.html',
+				templateUrl: 'modules/calculator/view',
 				controller: 'CalculatorCtrl'
 			});
 	});
