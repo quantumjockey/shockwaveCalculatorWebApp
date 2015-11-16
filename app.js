@@ -28,9 +28,26 @@ app.use(sassMiddleware({
   prefix: '/stylesheets'
 }));
 
-// register application routes
-var index = require('./routes/index');
-app.use('/', index);
+
+//// REGISTER APPLICATION ROUTES  (BEGIN) ////
+
+var router = express.Router();
+
+// client application partials
+router.get('/modules/:module/view', function (req, res) {
+  var name = req.params.module;
+  res.render('../app/modules/' + name + '/view');
+});
+
+// index route
+router.get('/', function(req, res, next) {
+  res.render('main');
+});
+
+app.use('/', router);
+
+//// REGISTER APPLICATION ROUTES  (END) ////
+
 
 // static assignment for public assets here below pre-compile tools to enable refresh upon changes
 app.use(express.static(path.join(__dirname, 'public')));
