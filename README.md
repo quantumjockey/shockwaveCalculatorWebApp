@@ -44,7 +44,7 @@ The application server can now be started by running,
 
 	$ npm start
 
-The app can now be viewed in the browser at [localhost:7000](http://localhost:7000/).
+The app can now be viewed in the browser at [localhost:3000](http://localhost:3000/).
 
 If you're developing the old-school way using your favorite text editor and the Terminal (or Command Prompt for you Windows Junkies), that's all you need!
 
