@@ -34,11 +34,7 @@ Clone this repository to your machine. Be sure to install all server-side packag
 
 	$ npm install
 
-Note that any warnings that come up may result from unmet dependencies being registered despite newer versions of those dependencies being downloaded and installed. As of this writing, these warnings can be safely ignored. Further information will be available as dependency updates are released.
-
-Then, install all client-side packages locally using,
-
-	$ bower install
+Note that any warnings that come up may result from unmet dependencies being registered despite newer versions of those dependencies being downloaded and installed. As of this writing, these warnings can be safely ignored. Further information will be available as dependency updates are released. Also, note that manual execution of Bower is not required as all packages for client-side dependencies will be automatocally installed during the ```postinstall``` task.
 
 The application server can now be started by running,
 
@@ -75,7 +71,7 @@ There are no specific env configurations required at this time.
 
 ### Deploying to Heroku
 
-Since this repository is linked to the application's remote GitHub repo, you can deploy a new version of the app to Heroku by pushing commits from local master to remote master using,
+Since this repository is linked to the application's remote GitHub repo, it is configured out-of-the-box for deployment to Heroku. You can deploy a new/modded version of the app to Heroku from a forked repository by pushing commits from local master to remote master using,
 
     $ git push origin develop:master
 
