@@ -6,7 +6,7 @@ angular.module('settings',[]);
 angular.module('calculator', [ 'layer', 'materials', 'settings' ]);
 
 angular
-	.module('shockwaveCalculatorWebApp', [
+	.module('shockwaveCalculator', [
 		'ngResource',
 		'ngRoute',
 		'calculator',
