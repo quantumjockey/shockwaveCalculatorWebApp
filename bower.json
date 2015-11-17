@@ -11,10 +11,8 @@
   "private": true,
   "dependencies": {
     "angular": "~1.4.7",
-    "angular-cookies": "~1.4.7",
     "angular-resource": "~1.4.7",
     "angular-route": "~1.4.7",
-    "angular-sanitize": "~1.4.7",
     "bootstrap-sass": "~3.3.5",
     "jquery": "~2.1.4",
     "requirejs": "~2.1.20"
