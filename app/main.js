@@ -19,7 +19,8 @@ requirejs.config({
 		],
 		jQuery: [
 			jQueryLibUrl
-		]
+		],
+		paths: ['paths']
     },
 	shim: {
 		'angular': {
@@ -33,6 +34,9 @@ requirejs.config({
 		},
 		'jQuery': {
 			'exports': 'jQuery'
+		},
+		'paths': {
+			'exports': 'paths'
 		}
 	}
 });
