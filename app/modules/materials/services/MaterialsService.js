@@ -1,7 +1,11 @@
-'use strict';
+define([], function() {
 
-angular
-	.module('materials')
-	.factory('MaterialsService', [ '$http', function ($http) {
-		return $http.get('model/materials.json');
-	}]);
+	'use strict';
+
+	angular
+		.module('materials')
+		.factory('MaterialsService', [ '$http', function ($http) {
+			return $http.get('model/materials.json');
+		}]);
+
+});

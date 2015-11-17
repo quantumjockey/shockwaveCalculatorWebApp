@@ -1,21 +1,25 @@
-﻿'use strict';
+﻿define([], function() {
 
-angular
-  .module('settings')
-  .controller('SettingsCtrl', [ '$scope', 'SettingsService', function ($scope, SettingsService) {
+	'use strict';
 
-  /////// CONTROLLER FUNCTION DEFINITIONS (BEGIN) ///////
+	angular
+		.module('settings')
+		.controller('SettingsCtrl', [ '$scope', 'SettingsService', function ($scope, SettingsService) {
 
-  // Description: Saves settings to the factory.
-  $scope.SaveSettings = function () {
-    SettingsService.Tolerance = $scope.Tolerance;
-  };
+		/////// CONTROLLER FUNCTION DEFINITIONS (BEGIN) ///////
 
-  /////// CONTROLLER FUNCTION DEFINITIONS (END) ///////
+		// Description: Saves settings to the factory.
+		$scope.SaveSettings = function () {
+			SettingsService.Tolerance = $scope.Tolerance;
+		};
 
-  /////// CONTROLLER INTIALIZATION (BEGIN) ///////
+		/////// CONTROLLER FUNCTION DEFINITIONS (END) ///////
 
-  $scope.Tolerance = SettingsService.Tolerance;
+		/////// CONTROLLER INTIALIZATION (BEGIN) ///////
 
-  /////// CONTROLLER INTIALIZATION (BEGIN) ///////
-}]);
+		$scope.Tolerance = SettingsService.Tolerance;
+
+		/////// CONTROLLER INTIALIZATION (BEGIN) ///////
+	}]);
+
+});

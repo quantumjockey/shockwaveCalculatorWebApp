@@ -1,41 +1,45 @@
-'use strict';
+define([], function() {
 
-angular
-	.module('layer')
-	.factory('LayerService', function () {
+	'use strict';
 
-		var _service = {};
+	angular
+		.module('layer')
+		.factory('LayerService', function () {
 
-		// Description: Representation of a material layer in shockwave experiments.
-		function Layer(title, materials, id) {
+			var _service = {};
 
-			// Layer Attributes
-			this.ID = id;
-			this.Name = title;
-			this.Thickness = 0;
+			// Description: Representation of a material layer in shockwave experiments.
+			function Layer(title, materials, id) {
 
-			// Material Attributes
-			this.SelectedMaterial = materials[0];
-			this.SelectedPhase = this.SelectedMaterial.Phases[0];
+				// Layer Attributes
+				this.ID = id;
+				this.Name = title;
+				this.Thickness = 0;
 
-			// Shock Attributes
-			this.FreeSurfaceReflection = 0;
-			this.ParticleVelocity = 0;
-			this.ShockDuration = 0;
-			this.ShockPressure = 0;
-			this.ShockVelocity = 0;
+				// Material Attributes
+				this.SelectedMaterial = materials[0];
+				this.SelectedPhase = this.SelectedMaterial.Phases[0];
 
-		}
+				// Shock Attributes
+				this.FreeSurfaceReflection = 0;
+				this.ParticleVelocity = 0;
+				this.ShockDuration = 0;
+				this.ShockPressure = 0;
+				this.ShockVelocity = 0;
 
-		// Description: Resets layer material for calculations.
-		Layer.prototype.Reset = function () {
-			this.SelectedPhase = this.SelectedMaterial.Phases[0];
-		};
+			}
 
-		// Description: Generates a layer object.
-		_service.createLayer = function(title, materials, id) {
-			return new Layer(title, materials, id);
-		};
+			// Description: Resets layer material for calculations.
+			Layer.prototype.Reset = function () {
+				this.SelectedPhase = this.SelectedMaterial.Phases[0];
+			};
 
-		return _service;
-	});
+			// Description: Generates a layer object.
+			_service.createLayer = function(title, materials, id) {
+				return new Layer(title, materials, id);
+			};
+
+			return _service;
+		});
+
+});

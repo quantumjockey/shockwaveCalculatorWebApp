@@ -1,7 +1,11 @@
-'use strict';
+define([], function() {
 
-angular
-	.module('layer')
-	.config(function () {
+	'use strict';
 
-	});
+	angular
+		.module('layer')
+		.config(function () {
+
+		});
+
+});

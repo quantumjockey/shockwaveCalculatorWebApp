@@ -1,12 +1,16 @@
-'use strict';
+define([], function() {
 
-angular
-	.module('settings')
-	.factory('SettingsService', function () {
+	'use strict';
 
-		var factory = {};
+	angular
+		.module('settings')
+		.factory('SettingsService', function () {
 
-		factory.Tolerance = 0.1;
+			var factory = {};
 
-		return factory;
-	});
+			factory.Tolerance = 0.1;
+
+			return factory;
+		});
+
+});
