@@ -41,7 +41,7 @@ router.get('/modules/:module/view', function (req, res) {
 
 // index route
 router.get('/', function(req, res, next) {
-  res.render('main');
+  res.render('layout');
 });
 
 app.use('/', router);
