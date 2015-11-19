@@ -2,10 +2,12 @@ define([], function() {
 
 	'use strict';
 
-	angular
-		.module('layer')
-		.config(function () {
+	var config = function() {
 
-		});
+	};
+
+	config.$inject = [];
+
+	return config;
 
 });
