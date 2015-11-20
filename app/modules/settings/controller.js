@@ -2,9 +2,7 @@
 
 	'use strict';
 
-	angular
-		.module('settings')
-		.controller('SettingsCtrl', [ '$scope', 'SettingsService', function ($scope, SettingsService) {
+	var SettingsCtrl = function($scope, SettingsService) {
 
 		/////// CONTROLLER FUNCTION DEFINITIONS (BEGIN) ///////
 
@@ -20,6 +18,11 @@
 		$scope.Tolerance = SettingsService.Tolerance;
 
 		/////// CONTROLLER INTIALIZATION (BEGIN) ///////
-	}]);
+
+	};
+
+	SettingsCtrl.$inject = ['$scope', 'SettingsService'];
+
+	return SettingsCtrl;
 
 });
