@@ -15,12 +15,22 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'app/test-main.js'
+        'app/paths.js',
+        'app/test-main.js',
+        'bower_components/angular/angular.js',
+        'bower_components/angular-mocks/angular-mocks.js',
+        'bower_components/angular-resource/angular-resource.js',
+        'bower_components/angular-route/angular-route.js',
+        {pattern: 'modules/**/*.js', included: false},
+        {pattern: 'modules/**/services/*.js', included: false},
+        {pattern: 'modules/**/*.spec.js', included: false},
+        {pattern: 'modules/**/services/*.spec.js', included: false}
     ],
 
 
     // list of files to exclude
     exclude: [
+        'app/main.js'
     ],
 
 
