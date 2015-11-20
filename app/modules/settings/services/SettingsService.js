@@ -2,15 +2,18 @@ define([], function() {
 
 	'use strict';
 
-	angular
-		.module('settings')
-		.factory('SettingsService', function () {
+	var SettingsService = function () {
 
-			var factory = {};
+		var factory = {};
 
-			factory.Tolerance = 0.1;
+		factory.Tolerance = 0.1;
 
-			return factory;
-		});
+		return factory;
+
+	};
+
+	SettingsService.$inject = [];
+
+	return SettingsService;
 
 });
