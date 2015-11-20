@@ -1,4 +1,14 @@
-define([], function() {
+define([
+		calculatorModule.module,
+		layerModule.module,
+		materialsModule.module,
+		settingsModule.module
+	], function(
+			calculator,
+			layer,
+			materials,
+			settings
+		) {
 
 	'use strict';
 
@@ -7,6 +17,7 @@ define([], function() {
 			'ngResource',
 			'ngRoute',
 			'calculator',
+			'layer',
 			'materials',
 			'settings'
 		])

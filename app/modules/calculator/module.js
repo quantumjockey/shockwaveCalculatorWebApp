@@ -1,21 +1,15 @@
 define([
 		calculatorModule.config,
-		calculatorModule.controller,
-		layerModule.module,
-		materialsModule.module,
-		settingsModule.module
+		calculatorModule.controller
 	], function(
 			config,
-			CalculatorCtrl,
-			layer,
-			materials,
-			settings
+			CalculatorCtrl
 		) {
 
 	'use strict';
 
 	angular
-		.module('calculator', ['layer', 'materials', 'settings'])
+		.module('calculator', [])
 		.config(config)
 		.controller('CalculatorCtrl', CalculatorCtrl);
 
