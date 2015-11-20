@@ -47,12 +47,13 @@ requirejs(
 		'angular',
 		'angularResource',
 		'angularRoute',
-		'jQuery'
+		'jQuery',
+		'paths'
 	], function(
 			angular
 		) {
 
-		requirejs([], function(shockwaveCalculator) {
+		requirejs([appModule.config], function(shockwaveCalculator) {
 			angular.element(document).ready(function() {
 				angular.bootstrap(document.body, ['shockwaveCalculator']);
 			});
