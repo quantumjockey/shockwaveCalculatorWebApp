@@ -3,7 +3,7 @@
 
 module.exports = function(config) {
   config.set({
-    basePath: '../..',
+    basePath: '',
     frameworks: ['jasmine', 'requirejs'],
     files: [
         'app/paths.js',
@@ -20,14 +20,12 @@ module.exports = function(config) {
     exclude: [
         'app/main.js'
     ],
-    preprocessors: {
-    },
     reporters: ['progress'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_DEBUG,
     autoWatch: true,
-    browsers: ['Chrome', 'PhantomJS'],
+    browsers: ['PhantomJS'],
     singleRun: false,
     concurrency: Infinity
   })
