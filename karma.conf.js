@@ -3,19 +3,19 @@
 
 module.exports = function(config) {
   config.set({
-    basePath: '',
+    basePath: 'app',
     frameworks: ['jasmine', 'requirejs'],
     files: [
-        'app/paths.js',
-        'app/test-main.js',
-        'bower_components/angular/angular.js',
-        'bower_components/angular-mocks/angular-mocks.js',
-        'bower_components/angular-resource/angular-resource.js',
-        'bower_components/angular-route/angular-route.js',
-        {pattern: 'app/modules/**/*.js', included: false},
-        {pattern: 'app/modules/**/services/*.js', included: false},
-        {pattern: 'app/modules/**/*.spec.js', included: false},
-        {pattern: 'app/modules/**/services/*.spec.js', included: false}
+        'paths.js',
+        'test-main.js',
+        '../bower_components/angular/angular.js',
+        '../bower_components/angular-mocks/angular-mocks.js',
+        '../bower_components/angular-resource/angular-resource.js',
+        '../bower_components/angular-route/angular-route.js',
+        {pattern: 'modules/**/*.js', included: false},
+        {pattern: 'modules/**/services/*.js', included: false},
+        {pattern: 'modules/**/*.spec.js', included: false},
+        {pattern: 'modules/**/services/*.spec.js', included: false}
     ],
     exclude: [
         'app/main.js'
