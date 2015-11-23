@@ -1,20 +1,15 @@
-// List of library dependencies (Url paths)
-var angularLibUrl = 'bower_components/angular/angular.min';
-var angularResourceLibUrl = 'bower_components/angular-resource/angular-resource.min';
-var angularRouteLibUrl = 'bower_components/angular-route/angular-route.min';
-
 // Begin loading library dependencies
 requirejs.config({
 	baseUrl: '/',
 	paths: {
 		angular: [
-			angularLibUrl
+			'bower_components/angular/angular.min'
 		],
 		angularResource: [
-			angularResourceLibUrl
+			'bower_components/angular-resource/angular-resource.min'
 		],
 		angularRoute: [
-			angularRouteLibUrl
+			'bower_components/angular-route/angular-route.min'
 		],
 		paths: ['paths']
 	},
