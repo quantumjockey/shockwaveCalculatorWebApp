@@ -6,6 +6,12 @@ define([], function() {
 
 		var _service = {};
 
+		//////// FOR CONFIG TEST ////////
+		_service.makeTwo = function() {
+			return 2;
+		};
+		//////// FOR CONFIG TEST ////////
+
 		// Description: Representation of a material layer in shockwave experiments.
 		function Layer(title, materials, id) {
 

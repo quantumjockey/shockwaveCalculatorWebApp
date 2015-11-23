@@ -4,6 +4,12 @@
 
 	var MaterialsCtrl = function($scope, MaterialsService) {
 
+		//////// FOR CONFIG TEST ////////
+		$scope.makeTwo = function() {
+			return 2;
+		};
+		//////// FOR CONFIG TEST ////////
+
 		/////// CONTROLLER FUNCTION DEFINITIONS (BEGIN) ///////
 
 		// Description: Gets the measurment condition for the selected material.

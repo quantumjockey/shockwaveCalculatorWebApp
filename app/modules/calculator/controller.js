@@ -4,6 +4,12 @@
 
 	var CalculatorCtrl = function ($scope, LayerService, MaterialsService, SettingsService) {
 
+		//////// FOR CONFIG TEST ////////
+		$scope.makeTwo = function() {
+			return 2;
+		};
+		//////// FOR CONFIG TEST ////////
+
 		/////// CONTROLLER FUNCTION DEFINITIONS (BEGIN) ///////
 
 		// Description: Calculates free-surface reflection for the object.
