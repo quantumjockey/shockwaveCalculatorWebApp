@@ -7,7 +7,7 @@ var jQueryLibUrl = 'bower_components/jquery/dist/jquery.min';
 // Begin loading library dependencies
 requirejs.config({
 	baseUrl: '/',
-    paths: {
+	paths: {
 		angular: [
 			angularLibUrl
 		],
@@ -21,7 +21,7 @@ requirejs.config({
 			jQueryLibUrl
 		],
 		paths: ['paths']
-    },
+	},
 	shim: {
 		'angular': {
 			'exports': 'angular'
