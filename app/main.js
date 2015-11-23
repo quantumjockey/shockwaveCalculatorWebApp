@@ -2,7 +2,6 @@
 var angularLibUrl = 'bower_components/angular/angular.min';
 var angularResourceLibUrl = 'bower_components/angular-resource/angular-resource.min';
 var angularRouteLibUrl = 'bower_components/angular-route/angular-route.min';
-var jQueryLibUrl = 'bower_components/jquery/dist/jquery.min';
 
 // Begin loading library dependencies
 requirejs.config({
@@ -17,9 +16,6 @@ requirejs.config({
 		angularRoute: [
 			angularRouteLibUrl
 		],
-		jQuery: [
-			jQueryLibUrl
-		],
 		paths: ['paths']
 	},
 	shim: {
@@ -31,9 +27,6 @@ requirejs.config({
 		},
 		'angularRoute': {
 			deps: ['angular']
-		},
-		'jQuery': {
-			'exports': 'jQuery'
 		},
 		'paths': {
 			'exports': 'paths'
@@ -47,7 +40,6 @@ requirejs(
 		'angular',
 		'angularResource',
 		'angularRoute',
-		'jQuery',
 		'paths'
 	], function(
 			angular
