@@ -15,16 +15,18 @@ requirejs.config({
 	},
 	shim: {
 		'angular': {
-			'exports': 'angular'
+			exports: 'angular'
 		},
 		'angularResource': {
-			deps: ['angular']
+			deps: ['angular'],
+			exports: 'angularResource'
 		},
 		'angularRoute': {
-			deps: ['angular']
+			deps: ['angular'],
+			exports: 'angularRoute'
 		},
 		'paths': {
-			'exports': 'paths'
+			exports: 'paths'
 		}
 	}
 });

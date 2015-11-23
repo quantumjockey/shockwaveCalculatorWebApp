@@ -16,6 +16,42 @@ require.config({
   // Karma serves files under /base, which is the basePath from your config file
   baseUrl: '/base',
 
+  paths: {
+    angular: [
+      'bower_components/angular/angular.min'
+    ],
+    angularMocks: [
+      'bower_components/angular-mocks/angular-mocks.min'
+    ],
+    angularResource: [
+      'bower_components/angular-resource/angular-resource.min'
+    ],
+    angularRoute: [
+      'bower_components/angular-route/angular-route.min'
+    ],
+    paths: ['paths']
+  },
+  shim: {
+    'angular': {
+      exports: 'angular'
+    },
+    'angularMocks': {
+      deps: ['angular'],
+      exports: 'angularMocks'
+    },
+    'angularResource': {
+      deps: ['angular'],
+      exports: 'angularResource'
+    },
+    'angularRoute': {
+      deps: ['angular'],
+      exports: 'angularRoute'
+    },
+    'paths': {
+      exports: 'paths'
+    }
+  },
+
   // dynamically load all test files
   deps: allTestFiles,
 
