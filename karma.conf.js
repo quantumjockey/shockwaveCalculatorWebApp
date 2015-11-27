@@ -7,18 +7,18 @@ module.exports = function(config) {
     frameworks: ['jasmine', 'requirejs'],
     files: [
         'paths.js',
-        '../bower_components/angular/angular.js',
-        '../bower_components/angular-mocks/angular-mocks.js',
-        '../bower_components/angular-resource/angular-resource.js',
-        '../bower_components/angular-route/angular-route.js',
+        'test-main.js',
+        {pattern: '../bower_components/angular/angular.js', included: true},
+        {pattern: '../bower_components/angular-mocks/angular-mocks.js', included: true},
+        {pattern: '../bower_components/angular-resource/angular-resource.js', included: true},
+        {pattern: '../bower_components/angular-route/angular-route.js', included: true},
         {pattern: 'modules/**/*.js', included: false},
         {pattern: 'modules/**/services/*.js', included: false},
         {pattern: 'modules/**/*.spec.js', included: false},
-        {pattern: 'modules/**/services/*.spec.js', included: false},
-        'test-main.js'
+        {pattern: 'modules/**/services/*.spec.js', included: false}
     ],
     exclude: [
-        'app/main.js'
+        'main.js'
     ],
     reporters: ['progress'],
     port: 9876,
