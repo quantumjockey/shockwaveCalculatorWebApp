@@ -6,6 +6,9 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var sassMiddleware = require('node-sass-middleware');
 
+// start message
+console.log('Starting application "shockwavecalculator"...');
+
 // create app instance
 var app = express();
 
@@ -89,6 +92,9 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
+
+// start confirmed message
+console.log('New instance started at ' + (new Date().getTime()));
 
 // export app configuration
 module.exports = app;
