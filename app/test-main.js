@@ -18,19 +18,20 @@ require.config({
 
   paths: {
     angular: [
-      'bower_components/angular/angular.min'
+      '/base/bower_components/angular/angular'
     ],
     angularMocks: [
-      'bower_components/angular-mocks/angular-mocks.min'
+      '/base/bower_components/angular-mocks/angular-mocks'
     ],
     angularResource: [
-      'bower_components/angular-resource/angular-resource.min'
+      '/base/bower_components/angular-resource/angular-resource'
     ],
     angularRoute: [
-      'bower_components/angular-route/angular-route.min'
+      '/base/bower_components/angular-route/angular-route'
     ],
     paths: ['paths']
   },
+
   shim: {
     'angular': {
       exports: 'angular'

@@ -1,3 +1,10 @@
+// List of RequireJS-compliant LibUrls
+
+const angularLib = 'bower_components/angular/angular.min';
+const angularMocksLib = 'bower_components/angular-mocks/angular-mocks.min';
+const angularResourceLib = 'bower_components/angular-resource/angular-resource.min';
+const angularRouteLib = 'bower_components/angular-route/angular-route.min';
+
 // List of RequireJS-compliant urls for Angular app modules
 
 const appModule = {
