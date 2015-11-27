@@ -42,6 +42,10 @@ The application server can now be started by running,
 
 The app can now be viewed in the browser at [localhost:3000](http://localhost:3000/).
 
+To start available test runners, use
+
+	$ npm test
+
 If you're developing the old-school way using your favorite text editor and the Terminal (or Command Prompt for you Windows Junkies), that's all you need!
 
 If you're planning to wrap this module in a project with your favorite IDE, tips & tricks will be included soon in the sections below.
