@@ -1,16 +1,16 @@
 // List of RequireJS-compliant urls for Angular app modules
 
-var appModule = {
+const appModule = {
 	config: 'config'
 };
 
-var calculatorModule = {
+const calculatorModule = {
 	config: 'modules/calculator/config',
 	controller: 'modules/calculator/controller',
 	module: 'modules/calculator/module'
 };
 
-var layerModule = {
+const layerModule = {
 	config: 'modules/layer/config',
 	module: 'modules/layer/module',
 	services: {
@@ -18,7 +18,7 @@ var layerModule = {
 	}
 };
 
-var materialsModule = {
+const materialsModule = {
 	config: 'modules/materials/config',
 	controller: 'modules/materials/controller',
 	module: 'modules/materials/module',
@@ -27,7 +27,7 @@ var materialsModule = {
 	}
 };
 
-var settingsModule = {
+const settingsModule = {
 	config: 'modules/settings/config',
 	controller: 'modules/settings/controller',
 	module: 'modules/settings/module',
