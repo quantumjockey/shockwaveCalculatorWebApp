@@ -5,6 +5,7 @@ var favicon = require('serve-favicon');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var sassMiddleware = require('node-sass-middleware');
+var coffeescript = require('coffee-script');
 
 // create app instance
 var app = express();
@@ -41,6 +42,12 @@ var router = express.Router();
 router.get('/modules/:module/view', function (req, res) {
   var name = req.params.module;
   res.render('../app/modules/' + name + '/view');
+});
+
+// client application scripts
+router.get('/modules/:module/config.js', function (req, res) {
+  var name = req.params.module;
+  coffeescript.compile('/modules/' + name + '/config.coffee');
 });
 
 // index route
